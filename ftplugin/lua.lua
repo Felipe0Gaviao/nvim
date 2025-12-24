@@ -7,6 +7,7 @@ local function reload()
 
 	dofile(vim.env.MYVIMRC)
 	vim.notify("Config reloaded", vim.log.levels.INFO)
+	vim.cmd("nohl")
 end
 
 local augroup = vim.api.nvim_create_augroup("UserConfigAutoReload", { clear = true })
