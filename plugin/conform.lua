@@ -10,6 +10,7 @@ require("conform").setup({
 		python = { "ruff_format" },
 		javascript = { "prettier" },
 		typescript = { "prettier" },
+		toml = { "taplo" },
 		json = { "prettier" },
 		yaml = { "prettier" },
 		markdown = { "prettier" },
