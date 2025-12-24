@@ -17,13 +17,38 @@ require("mason").setup()
 require("mason-lspconfig").setup()
 require("mason-tool-installer").setup({
 	ensure_installed = {
+		-----------
 		-- LSPs
+		-----------
+
+		-- Lua lsp
 		"lua_ls",
+
+		-- Python
 		"basedpyright",
 
-		-- Formatters
+		---------------------------
+		-- Linters and Formatters
+		---------------------------
+
+		-- (java|type)script-related code styling
 		"prettier",
+
+		-- Neovim lua config editing
 		"stylua",
+
+		-- Code spell check for comments
+		"codespell",
+
+		-- TOML editing
+		"taplo",
+
+		-- Jinja formatter
+		-- Might be necessary later
+		-- "djlint",
+
+		-- TODO: find a way to disable the ruff lsp while maintaining linting
+		-- and formatting capalities
 		"ruff",
 	},
 	auto_update = true,
