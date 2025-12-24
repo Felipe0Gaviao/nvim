@@ -13,7 +13,6 @@ require("blink.cmp").setup({
 	},
 	keymap = {
 		preset = "default", -- keep default bindings
-
 		-- Accept current completion with Enter
 		["<CR>"] = { "accept", "fallback" },
 	},
@@ -24,7 +23,7 @@ require("blink.cmp").setup({
 			},
 		},
 		trigger = {
-			show_on_insert = true, -- show automatically when typing
+			show_on_insert = true, -- show automatically when entering insert mode
 		},
 		accept = {
 			auto_brackets = {
