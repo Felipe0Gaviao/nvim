@@ -52,14 +52,10 @@ vim.opt.undodir = vim.fn.stdpath("state") .. "/undo"
 vim.opt.ttyfast = true -- terminal optimizations
 
 -- Diagnostic
-vim.diagnostic.config({ virtual_text = true }) -- inline diagnostics
-vim.api.nvim_create_autocmd("CursorHold", {
-	group = vim.api.nvim_create_augroup("DiagGroup", { clear = true }),
-	pattern = "*",
-	callback = function()
-		vim.diagnostic.open_float(nil, { focus = false })
-	end,
-}) -- auto open floating diagnostics
+vim.diagnostic.config({ virtual_text = false }) -- inline diagnostics
+
+-- Global LSP Settings
+vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
 
 -- ===============================
 -- Load Colorscheme Separately
