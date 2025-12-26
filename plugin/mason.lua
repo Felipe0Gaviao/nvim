@@ -48,8 +48,10 @@ require("mason-tool-installer").setup({
 		-- "djlint",
 
 		-- TODO: find a way to disable the ruff lsp while maintaining linting
-		-- and formatting capalities
-		"ruff",
+		-- and formatting capalities,
+		-- as of right now, i'm using the globally installed version on my machine, using "uv tool install (uvx)"
+		-- so that the diagnostics don't get duplicated
+		-- "ruff",
 	},
 	auto_update = true,
 	run_on_start = true,
