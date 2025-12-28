@@ -2,11 +2,12 @@ vim.pack.add({
 	"https://github.com/nvim-mini/mini.nvim",
 })
 
+require("mini.git").setup()
 require("mini.indentscope").setup({
 	draw = {
 		animation = require("mini.indentscope").gen_animation.none(), -- disable scope animation
 	},
-}) -- highlight indentation scope, really good for things like dealing with lenghty HTML and function bodies
+}) -- highlight indentation scope, really good for things like dealing with lenghthy HTML and function bodies
 require("mini.move").setup() -- move things (use Alt + the direction)
 require("mini.notify").setup({
 	lsp_progress = {
@@ -16,4 +17,4 @@ require("mini.notify").setup({
 require("mini.operators").setup() -- not sure if i'm going to use this enough to be worth it, remember keymap "g="
 require("mini.pairs").setup() -- auto pairs
 require("mini.statusline").setup() -- changes the statusline at the bottom of the window
-require("mini.surround").setup() -- surround text by selectin in visual mode and pressing "sa"
+require("mini.surround").setup() -- surround text by selecting in visual mode and pressing "sa"
