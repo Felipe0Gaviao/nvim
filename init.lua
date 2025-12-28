@@ -61,6 +61,7 @@ vim.lsp.inlay_hint.enable(true)
 vim.keymap.set("n", "<leader>w", "<cmd>silent write<cr>")
 vim.keymap.set("n", "<leader>q", "<cmd>confirm quit<cr>")
 vim.keymap.set({ "n", "i", "v", "t", "c" }, "<C-z>", "<Nop>", { silent = true })
+vim.keymap.set("n", "<esc>", "<cmd>noh<cr>")
 
 -- ===============================
 -- Load Colorscheme Separately
