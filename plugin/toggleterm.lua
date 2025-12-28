@@ -26,3 +26,5 @@ vim.api.nvim_create_autocmd("TermOpen", {
 		vim.keymap.set("t", "<Esc>", [[<C-\><C-n>]], opts)
 	end,
 })
+
+vim.keymap.set("n", "<leader>t", "<cmd>ToggleTerm<cr>")

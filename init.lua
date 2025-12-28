@@ -57,6 +57,11 @@ vim.diagnostic.config({ virtual_text = false }) -- inline diagnostics
 -- Global LSP Settings
 vim.lsp.inlay_hint.enable(true)
 
+-- Keymaping
+vim.keymap.set("n", "<leader>w", "<cmd>silent write<cr>")
+vim.keymap.set("n", "<leader>q", "<cmd>confirm quit<cr>")
+vim.keymap.set({ "n", "i", "v", "t", "c" }, "<C-z>", "<Nop>", { silent = true })
+
 -- ===============================
 -- Load Colorscheme Separately
 -- ===============================
@@ -65,8 +70,3 @@ vim.pack.add({
 })
 
 vim.cmd("colorscheme cyberdream")
-
--- ===============================
--- Load Modular Config
--- ===============================
-require("keymaps")
