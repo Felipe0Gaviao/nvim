@@ -55,7 +55,7 @@ vim.opt.ttyfast = true -- terminal optimizations
 vim.diagnostic.config({ virtual_text = false }) -- inline diagnostics
 
 -- Global LSP Settings
-vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
+vim.lsp.inlay_hint.enable(true)
 
 -- ===============================
 -- Load Colorscheme Separately
