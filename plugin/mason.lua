@@ -14,18 +14,30 @@ vim.pack.add({
 })
 
 require("mason").setup()
-require("mason-lspconfig").setup()
+require("mason-lspconfig").setup({
+	automatic_enable = {
+		exclude = {
+			"ruff",
+		},
+	},
+})
 require("mason-tool-installer").setup({
 	ensure_installed = {
 		-----------
 		-- LSPs
 		-----------
 
-		-- Lua lsp
+		-- Lua
 		"lua_ls",
 
 		-- Python
 		"basedpyright",
+
+		-- (Type|Java)script
+		"vtsls",
+
+		-- JSON
+		"json-lsp",
 
 		---------------------------
 		-- Linters and Formatters
@@ -43,15 +55,14 @@ require("mason-tool-installer").setup({
 		-- TOML editing
 		"taplo",
 
+		-- Markdown
+		"markdownlint-cli2",
+
+		-- python
+		"ruff",
 		-- Jinja formatter
 		-- Might be necessary later
 		-- "djlint",
-
-		-- TODO: find a way to disable the ruff lsp while maintaining linting
-		-- and formatting capalities,
-		-- as of right now, i'm using the globally installed version on my machine, using "uv tool install (uvx)"
-		-- so that the diagnostics don't get duplicated
-		-- "ruff",
 	},
 	auto_update = true,
 	run_on_start = true,
