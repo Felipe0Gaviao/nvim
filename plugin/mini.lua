@@ -2,7 +2,6 @@ vim.pack.add({
 	"https://github.com/nvim-mini/mini.nvim",
 })
 
-require("mini.git").setup() -- adds git commands to neovim
 require("mini.indentscope").setup({
 	draw = {
 		animation = require("mini.indentscope").gen_animation.none(), -- disable scope animation

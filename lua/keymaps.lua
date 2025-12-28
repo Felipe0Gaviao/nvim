@@ -8,13 +8,5 @@ map({ "n", "i", "v", "t", "c" }, "<C-z>", "<Nop>", { silent = true })
 -- Oil.nvim plugin
 map("n", "<leader>e", "<cmd>Oil<cr>")
 
--- MiniGit from mini.nvim plugin
-map("n", "<leader>ga", "<cmd>Git add %<cr>")
-map("n", "<leader>gC", "<cmd>Git checkout %<cr>")
-map("n", "<leader>gc", "<cmd>Git commit<cr>")
-map("n", "<leader>gd", "<cmd>Git diff<cr>")
-map("n", "<leader>gs", "<cmd>Git status<cr>")
-map("n", "<leader>gr", "<cmd>Git restore --staged %<cr>")
-
 -- Terminal from the toggleterm.nvim
 map("n", "<leader>t", "<cmd>ToggleTerm<cr>")
