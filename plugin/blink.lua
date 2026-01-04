@@ -4,17 +4,29 @@ vim.pack.add({
 	},
 	{
 		src = "https://github.com/saghen/blink.cmp",
+		version = "*",
+		build = "cargo build --release",
 	},
 })
 
 require("blink.cmp").setup({
+	sources = {
+		default = { "lsp", "path", "snippets", "buffer" },
+	},
 	fuzzy = {
 		implementation = "rust",
+		prebuilt_binaries = {
+			download = true,
+			ignore_version_mismatch = true,
+		},
 	},
 	keymap = {
 		preset = "default", -- keep default bindings
-		-- Accept current completion with Enter
-		["<CR>"] = { "accept", "fallback" },
+		-- Accept current completion with Tab and Enter
+		["<tab>"] = { "accept", "fallback" },
+		["<cr>"] = { "accept", "fallback" },
+		["<C-j"] = { "select_next", "fallback" },
+		["<C-k"] = { "select_prev", "fallback" },
 	},
 	completion = {
 		list = {
@@ -36,6 +48,23 @@ require("blink.cmp").setup({
 		documentation = {
 			auto_show = true, -- auto show documentation
 			auto_show_delay_ms = 300,
+		},
+	},
+	cmdline = {
+		enabled = true,
+		keymap = {
+			preset = "cmdline",
+			["<Right>"] = false,
+			["<Left>"] = false,
+		},
+		completion = {
+			list = { selection = { preselect = false } },
+			menu = {
+				auto_show = function(_)
+					return vim.fn.getcmdtype() == ":"
+				end,
+			},
+			ghost_text = { enabled = true },
 		},
 	},
 })
