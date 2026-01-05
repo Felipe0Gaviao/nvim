@@ -1,4 +1,4 @@
-vim.pack.add({
+Pack({
 	{
 		src = "https://github.com/rachartier/tiny-inline-diagnostic.nvim",
 	},

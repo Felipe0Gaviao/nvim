@@ -1,4 +1,4 @@
-vim.pack.add({
+Pack({
 	{
 		src = "https://github.com/neovim/nvim-lspconfig",
 	},

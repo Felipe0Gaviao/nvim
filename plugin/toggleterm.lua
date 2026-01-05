@@ -1,4 +1,4 @@
-vim.pack.add({
+Pack({
 	{
 		src = "https://github.com/akinsho/toggleterm.nvim",
 	},
@@ -23,8 +23,8 @@ vim.api.nvim_create_autocmd("TermOpen", {
 		local opts = { buffer = true }
 
 		-- Leave terminal mode
-		vim.keymap.set("t", "<Esc>", [[<C-\><C-n>]], opts)
+		Map("t", "<Esc>", [[<C-\><C-n>]], opts)
 	end,
 })
 
-vim.keymap.set("n", "<leader>t", "<cmd>ToggleTerm<cr>")
+Map("n", "<leader>t", "<cmd>ToggleTerm<cr>")

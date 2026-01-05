@@ -1,4 +1,4 @@
-vim.pack.add({
+Pack({
 	"https://github.com/stevearc/oil.nvim",
 }, {
 	load = true,
@@ -7,4 +7,4 @@ vim.pack.add({
 
 require("oil").setup()
 
-vim.keymap.set("n", "<leader>e", "<cmd>Oil<cr>")
+Map("n", "<leader>e", "<cmd>Oil<cr>")

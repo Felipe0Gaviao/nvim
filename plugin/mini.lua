@@ -1,4 +1,4 @@
-vim.pack.add({
+Pack({
 	"https://github.com/nvim-mini/mini.nvim",
 })
 
