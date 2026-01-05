@@ -90,10 +90,11 @@ vim.diagnostic.config({ virtual_text = false }) -- inline diagnostics
 vim.lsp.inlay_hint.enable(true)
 
 -- Keymaping
-Map("n", "<leader>w", "<cmd>silent write<cr>")
-Map("n", "<leader>q", "<cmd>confirm quit<cr>")
-Map({ "n", "i", "v", "t", "c" }, "<C-z>", "<Nop>", { silent = true })
-Map("n", "<esc>", "<cmd>noh<cr>", { noremap = true, silent = true })
+Map("n", "<leader>w", "<cmd>silent write<cr>", { desc = "Easier Write" })
+Map("n", "<leader>q", "<cmd>confirm quit<cr>", { desc = "Easier Quit" })
+Map({ "n", "i", "v", "t", "c" }, "<C-z>", "<Nop>")
+Map("n", "<esc>", "<cmd>noh<cr>")
+Map("n", "<leader>k", vim.lsp.buf.signature_help)
 
 -- ===============================
 -- Load Colorscheme Separately
