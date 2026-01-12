@@ -2,6 +2,7 @@ Pack({
 	"https://github.com/nvim-mini/mini.nvim",
 })
 
+require("mini.icons").setup()
 require("mini.indentscope").setup({
 	draw = {
 		animation = require("mini.indentscope").gen_animation.none(), -- disable scope animation
