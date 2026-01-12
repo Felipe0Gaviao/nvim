@@ -2,12 +2,11 @@ Pack({
 	"https://github.com/nvim-mini/mini.nvim",
 })
 
-require("mini.git").setup()
 require("mini.indentscope").setup({
 	draw = {
 		animation = require("mini.indentscope").gen_animation.none(), -- disable scope animation
 	},
-}) -- highlight indentation scope, really good for things like dealing with lenghthy HTML and function bodies
+}) -- highlight indentation scope, really good for things like dealing with lengthy HTML and function bodies
 require("mini.move").setup() -- move things (use Alt + the direction)
 require("mini.notify").setup({
 	lsp_progress = {

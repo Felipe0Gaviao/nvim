@@ -1,0 +1,10 @@
+#!/usr/bin/env python3
+from pathlib import Path
+
+CURRENT_DIR = Path(__file__).parent
+
+
+for path in CURRENT_DIR.rglob("*"):
+    if ".git" not in path.parts and path.is_file():
+        print(f"=== {path.name} ===")
+        print(path.read_text())
