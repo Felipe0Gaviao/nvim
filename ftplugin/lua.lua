@@ -1,37 +1,26 @@
-local function reload()
-	for name, _ in pairs(package.loaded) do
-		if vim.startswith(name, "keymaps") or vim.startswith(name, "lsp") then
-			package.loaded[name] = nil
-		end
-	end
+local api = vim.api
+local fn = vim.fn
 
-	dofile(vim.env.MYVIMRC)
-	vim.notify("Config reloaded", vim.log.levels.INFO)
-	vim.cmd("nohl")
-end
+local SESSION_PATH = fn.stdpath("state") .. "/Session.vim"
 
-local augroup = vim.api.nvim_create_augroup("UserConfigAutoReload", { clear = true })
-
-vim.api.nvim_create_autocmd("BufWritePost", {
-	group = augroup,
+-- Auto restart neovim config while preserving session
+api.nvim_create_autocmd("BufWritePost", {
+	group = api.nvim_create_augroup("LuaConfigRestartHint", { clear = true }),
 	pattern = "*.lua",
 	callback = function(args)
-		local file = vim.fn.fnamemodify(args.file, ":p")
-		local config_path = vim.fn.fnamemodify(vim.fn.stdpath("config"), ":p")
+		local file = fn.fnamemodify(args.file, ":p")
+		local config_dir = fn.stdpath("config")
 
-		if not vim.startswith(file, config_path) then
+		if not vim.startswith(file, config_dir) then
 			return
 		end
+		-- Save all buffers silently
+		vim.cmd("silent! wall")
 
-		vim.schedule(function()
-			local ok, err = pcall(function()
-				reload()
-			end)
+		-- Write session
+		vim.cmd("silent! mksession! " .. SESSION_PATH)
 
-			if not ok then
-				vim.notify(err, vim.log.levels.ERROR, { title = "AutoReloadConfig" })
-			end
-		end)
+		-- Restart and restore session
+		vim.cmd("restart source " .. SESSION_PATH)
 	end,
-	desc = "Auto-reload Neovim config on save",
 })
