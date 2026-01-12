@@ -4,7 +4,6 @@ Pack({
 	},
 	{
 		src = "https://github.com/saghen/blink.cmp",
-		version = "*",
 		build = "cargo build --release",
 	},
 })
