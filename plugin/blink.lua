@@ -4,7 +4,7 @@ Pack({
 	},
 	{
 		src = "https://github.com/saghen/blink.cmp",
-		build = "cargo build --release",
+		version = "v1.8.0",
 	},
 })
 
@@ -16,7 +16,6 @@ require("blink.cmp").setup({
 		implementation = "rust",
 		prebuilt_binaries = {
 			download = true,
-			ignore_version_mismatch = true,
 		},
 	},
 	keymap = {
