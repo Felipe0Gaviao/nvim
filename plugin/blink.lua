@@ -4,7 +4,7 @@ Pack({
 	},
 	{
 		src = "https://github.com/saghen/blink.cmp",
-		version = "v1.8.0",
+		version = vim.version.range("*"),
 	},
 })
 
