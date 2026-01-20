@@ -56,7 +56,7 @@ require("mason-tool-installer").setup({
 		"taplo",
 
 		-- Markdown
-		"markdownlint-cli2",
+		"markdown-oxide",
 
 		-- python
 		"ruff",

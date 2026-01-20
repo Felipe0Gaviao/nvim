@@ -7,7 +7,7 @@ Pack({
 local lint = require("lint")
 
 lint.linters_by_ft = {
-	markdown = { "markdownlint-cli2", "codespell" },
+	markdown = { "codespell" },
 	lua = { "codespell" },
 	toml = { "codespell" },
 	json = { "codespell" },
