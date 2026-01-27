@@ -57,14 +57,6 @@ vim.api.nvim_create_autocmd({ "TextChanged", "TextChangedI", "BufEnter", "WinScr
 	end,
 })
 
--- check only current line + neighbors
-vim.api.nvim_create_autocmd({ "TextChanged", "TextChangedI" }, {
-	callback = function()
-		local current_row = vim.api.nvim_win_get_cursor(0)[1]
-		fastspell.sendSpellCheckRequest(current_row - 2, current_row + 1)
-	end,
-})
-
 -- Commands
 vim.api.nvim_create_user_command("SpellCheck", function()
 	fastspell.sendSpellCheckRequest(0, vim.api.nvim_buf_line_count(0))
