@@ -1,10 +1,6 @@
 Pack({
-	{
-		src = "https://github.com/rmagatti/logger.nvim",
-	},
-	{
-		src = "https://github.com/rmagatti/goto-preview",
-	},
+	"https://github.com/rmagatti/logger.nvim",
+	"https://github.com/rmagatti/goto-preview",
 })
 
 local goto_preview = require("goto-preview")

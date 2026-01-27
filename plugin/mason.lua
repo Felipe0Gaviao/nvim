@@ -1,22 +1,10 @@
 Pack({
-	{
-		src = "https://github.com/neovim/nvim-lspconfig",
-	},
-	{
-		src = "https://github.com/mason-org/mason.nvim",
-	},
-	{
-		src = "https://github.com/mfussenegger/nvim-lint",
-	},
-	{
-		src = "https://github.com/mason-org/mason-lspconfig.nvim",
-	},
-	{
-		src = "https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim",
-	},
-	{
-		src = "https://github.com/rshkarin/mason-nvim-lint",
-	},
+	"https://github.com/neovim/nvim-lspconfig",
+	"https://github.com/mason-org/mason.nvim",
+	"https://github.com/mfussenegger/nvim-lint",
+	"https://github.com/mason-org/mason-lspconfig.nvim",
+	"https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim",
+	"https://github.com/rshkarin/mason-nvim-lint",
 })
 
 require("mason").setup()

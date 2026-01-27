@@ -1,8 +1,4 @@
-Pack({
-	{
-		src = "https://github.com/rachartier/tiny-inline-diagnostic.nvim",
-	},
-})
+Pack({ "https://github.com/rachartier/tiny-inline-diagnostic.nvim" })
 
 require("tiny-inline-diagnostic").setup({
 	preset = "minimal",

@@ -1,5 +1,1 @@
-Pack({
-	{
-		src = "https://github.com/OXY2DEV/markview.nvim",
-	},
-})
+Pack({ "https://github.com/OXY2DEV/markview.nvim" })
