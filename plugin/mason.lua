@@ -66,12 +66,15 @@ vim.api.nvim_create_autocmd({ "BufWritePost", "InsertLeave" }, {
 	callback = function()
 		-- try_lint without arguments runs the linters defined in `linters_by_ft`
 		-- for the current filetype
-		require("lint").try_lint()
+		lint.try_lint()
+		lint.try_lint("cspell")
 	end,
 })
 
 require("mason-nvim-lint").setup({
 	ensure_installed = {
+		-- general
+		"cspell",
 		-- python
 		"ruff",
 	},
