@@ -18,9 +18,8 @@ require("blink.cmp").setup({
 	},
 	keymap = {
 		preset = "default", -- keep default bindings
-		-- Accept current completion with Tab or Enter
+		-- Accept current completion with Tab
 		["<tab>"] = { "accept", "fallback" },
-		["<cr>"] = { "accept", "fallback" },
 	},
 	completion = {
 		list = {
