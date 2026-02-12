@@ -52,8 +52,14 @@ opt.tabstop = 4
 opt.shiftwidth = 4
 opt.expandtab = true -- use spaces instead of tabs
 opt.smarttab = true
-opt.autoindent = true
+-- opt.autoindent = true -- treesitter is handling that for me
 opt.smartindent = true
+
+-- Folding
+opt.foldlevel = 99
+opt.foldlevelstart = 99
+opt.foldenable = true
+opt.foldcolumn = "1"
 
 -- Searching
 opt.ignorecase = true
