@@ -92,7 +92,11 @@ opt.undodir = vim.fn.stdpath("state") .. "/undo"
 vim.diagnostic.config({ virtual_text = false }) -- inline diagnostics
 
 -- Global LSP Settings
-vim.lsp.inlay_hint.enable(true)
+vim.api.nvim_create_autocmd("LspAttach", {
+	callback = function(args)
+		vim.lsp.inlay_hint.enable(true, { bufnr = args.buf })
+	end,
+})
 
 -- Keymaping
 Map("n", "<leader>w", "<cmd>silent write<cr>", { desc = "Easier Write" })
