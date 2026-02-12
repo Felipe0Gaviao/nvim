@@ -80,7 +80,7 @@ vim.g.maplocalleader = "\\"
 
 -- Misc / Performance
 opt.mouse = "a" -- enable mouse support
-opt.updatetime = 300 -- faster CursorHold and completion
+opt.updatetime = 200 -- faster CursorHold and completion
 opt.completeopt = { "menuone", "noselect", "popup" }
 opt.backup = false
 opt.writebackup = false
