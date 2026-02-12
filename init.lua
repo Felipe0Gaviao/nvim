@@ -87,7 +87,6 @@ opt.writebackup = false
 opt.swapfile = false -- no swapfiles
 opt.undofile = true -- persistent undo
 opt.undodir = vim.fn.stdpath("state") .. "/undo"
-opt.ttyfast = true -- terminal optimizations
 
 -- Diagnostic
 vim.diagnostic.config({ virtual_text = false }) -- inline diagnostics
