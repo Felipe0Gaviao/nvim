@@ -1,3 +1,5 @@
+-- Experimental Lua Module loader
+-- vim.loader.enable() -- adding this gave some errors, will look into it soon
 -- ===============================
 -- Core Shortcuts
 -- ===============================
@@ -94,7 +96,11 @@ vim.diagnostic.config({ virtual_text = false }) -- inline diagnostics
 -- Global LSP Settings
 vim.api.nvim_create_autocmd("LspAttach", {
 	callback = function(args)
-		vim.lsp.inlay_hint.enable(true, { bufnr = args.buf })
+		local buf = args.buf
+
+		vim.lsp.inlay_hint.enable(true, { bufnr = buf })
+
+		vim.keymap.set("n", "K", vim.lsp.buf.hover, { buffer = buf })
 	end,
 })
 
@@ -103,7 +109,6 @@ Map("n", "<leader>w", "<cmd>silent write<cr>", { desc = "Easier Write" })
 Map("n", "<leader>q", "<cmd>confirm quit<cr>", { desc = "Easier Quit" })
 Map({ "n", "i", "v", "t", "c" }, "<C-z>", "<Nop>")
 Map("n", "<esc>", "<cmd>noh<cr>")
-Map("n", "<leader>k", vim.lsp.buf.signature_help)
 
 -- ===============================
 -- Load Colorscheme Separately
