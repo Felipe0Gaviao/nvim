@@ -40,8 +40,8 @@ require("mason-tool-installer").setup({
 		-- Formatters
 		---------------------------
 
-		-- (java|type)script-related code styling
-		"prettier",
+		-- Web-related code styling
+		"biome",
 
 		-- Neovim lua config editing
 		"stylua",

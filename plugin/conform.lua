@@ -4,12 +4,12 @@ require("conform").setup({
 	formatters_by_ft = {
 		lua = { "stylua" },
 		python = { "ruff_fix", "ruff_format", "ruff_organize_imports" },
-		javascript = { "prettier" },
-		typescript = { "prettier" },
+		javascript = { "biome" },
+		typescript = { "biome" },
 		toml = { "taplo" },
-		json = { "prettier" },
-		yaml = { "prettier" },
-		markdown = { "prettier" },
+		json = { "biome" },
+		yaml = { "biome" },
+		markdown = { "biome" },
 	},
 
 	format_on_save = {
