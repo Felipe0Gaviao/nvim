@@ -24,13 +24,13 @@ treesitter.install({
 	"css",
 	"diff",
 	"git_config",
-	"git",
 	"git_rebase",
 	"gitcommit",
 	"gitignore",
 	"json",
 	"html",
 	"html_tags",
+	"kotlin",
 	-- may be needed later
 	-- "htmljango",
 	-- "jinja",
@@ -39,8 +39,8 @@ treesitter.install({
 vim.api.nvim_create_autocmd("FileType", {
 	callback = function(args)
 		if pcall(vim.treesitter.start, args.buf) then
-			vim.wo.foldmethod = "expr"
-			vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+			vim.opt_local.foldmethod = "expr"
+			vim.opt_local.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 		end
 	end,
 })
