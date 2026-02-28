@@ -38,6 +38,9 @@ require("mason-tool-installer").setup({
 		-- TOML editing
 		"taplo",
 
+		-- Python
+		"ruff",
+
 		-- Jinja formatter
 		-- Might be necessary later
 		-- "djlint",
