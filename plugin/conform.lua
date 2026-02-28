@@ -10,6 +10,7 @@ require("conform").setup({
 		json = { "biome" },
 		yaml = { "biome" },
 		markdown = { "biome" },
+		kotlin = { "kfmt " },
 	},
 
 	format_on_save = {
