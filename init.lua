@@ -35,27 +35,55 @@ end
 -- ===============================
 -- Core Editor Options
 -- ===============================
+--
+-- Installing mini.nvim to deal with some of those options for me with mini.basics
+Pack({
+	"https://github.com/nvim-mini/mini.nvim",
+})
+
+require("mini.basics").setup({
+	options = {
+		basic = true,
+		extra_ui = true,
+		win_borders = "rounded",
+	},
+	mappings = {
+		basic = true,
+		option_toggle_prefix = [[\]],
+		windows = false,
+		move_with_alt = true,
+	},
+	auto_commands = {
+		basic = true,
+	},
+	silent = true,
+})
+require("mini.icons").setup()
+require("mini.indentscope").setup({
+	draw = {
+		animation = require("mini.indentscope").gen_animation.none(), -- disable scope animation
+	},
+}) -- highlight indentation scope, really good for things like dealing with lengthy HTML and function bodies
+require("mini.move").setup() -- move things (use Alt + the direction)
+require("mini.notify").setup({
+	lsp_progress = {
+		enable = false, -- disable lsp notifications of things like "loading workspace"
+	},
+}) -- adds better notifications
+require("mini.operators").setup() -- not sure if i'm going to use this enough to be worth it, remember keymap "g="
+require("mini.pairs").setup() -- auto pairs
+require("mini.statusline").setup() -- changes the statusline at the bottom of the window
+require("mini.surround").setup() -- surround text by selecting in visual mode and pressing "sa"
 
 -- UI
-opt.cursorline = true -- highlight current line
-opt.termguicolors = true -- true color support
-opt.signcolumn = "yes:1" -- reserve a single column
-opt.winborder = "rounded" -- make window borders rounded
-opt.wrap = false -- remove line wrap
 opt.scrolloff = 8 -- vertical scroll buffer
 opt.sidescrolloff = 8 -- horizontal scroll buffer
-
--- Numbers
-opt.number = true -- add numbers at the start of the line as reference
-opt.relativenumber = true -- add relative numbers so that i know how many number i am from each line other than the one i'm currently at
 
 -- Tabs & Indentation
 opt.tabstop = 4
 opt.shiftwidth = 4
 opt.expandtab = true -- use spaces instead of tabs
 opt.smarttab = true
--- opt.autoindent = true -- treesitter is handling that for me
-opt.smartindent = true
 
 -- Folding
 opt.foldlevel = 99
@@ -63,32 +91,12 @@ opt.foldlevelstart = 99
 opt.foldenable = true
 opt.foldcolumn = "1"
 
--- Searching
-opt.ignorecase = true
-opt.smartcase = true
-opt.hlsearch = true
-opt.incsearch = true
-
 -- Clipboard
 opt.clipboard = "unnamedplus" -- use system clipboard
 
--- Split behavior
-opt.splitright = true
-opt.splitbelow = true
-
--- Leader keys
-vim.g.mapleader = " "
-vim.g.maplocalleader = "\\"
-
 -- Misc / Performance
-opt.mouse = "a" -- enable mouse support
 opt.updatetime = 200 -- faster CursorHold and completion
-opt.completeopt = { "menuone", "noselect", "popup" }
-opt.backup = false
-opt.writebackup = false
 opt.swapfile = false -- no swapfiles
-opt.undofile = true -- persistent undo
-opt.undodir = vim.fn.stdpath("state") .. "/undo"
 
 -- Diagnostic
 vim.diagnostic.config({ virtual_text = false }) -- inline diagnostics
@@ -105,8 +113,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 })
 
 -- Keymaping
-Map("n", "<leader>w", "<cmd>silent write<cr>", { desc = "Easier Write" })
-Map("n", "<leader>q", "<cmd>confirm quit<cr>", { desc = "Easier Quit" })
+Map("n", "<leader>q", "<cmd> confirm quit<cr>", { desc = "Better quit" })
 Map({ "n", "i", "v", "t", "c" }, "<C-z>", "<Nop>")
 Map("n", "<esc>", "<cmd>noh<cr>")
 
