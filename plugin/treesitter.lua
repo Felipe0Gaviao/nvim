@@ -28,6 +28,7 @@ treesitter.install({
 	"python",
 	"regex",
 	"requirements",
+	"rust",
 	"toml",
 	"typescript",
 	"zsh",

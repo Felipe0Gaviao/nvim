@@ -11,6 +11,7 @@ require("conform").setup({
 		yaml = { "biome" },
 		markdown = { "biome" },
 		kotlin = { "kfmt " },
+		rust = { "rustfmt" },
 	},
 
 	format_on_save = {
@@ -18,3 +19,5 @@ require("conform").setup({
 		timeout_ms = 500,
 	},
 })
+
+vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"

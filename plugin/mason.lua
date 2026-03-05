@@ -25,6 +25,9 @@ require("mason-tool-installer").setup({
 		-- Markdown
 		"markdown-oxide",
 
+		-- Rust
+		"rust-analyzer",
+
 		---------------------------
 		-- Formatters
 		---------------------------
