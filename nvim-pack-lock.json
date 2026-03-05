@@ -6,7 +6,7 @@
       "version": ">=0.0.0"
     },
     "conform.nvim": {
-      "rev": "e969e302bced7ffb9a0a0323629f31feb0ca35a6",
+      "rev": "40dcec5555f960b0a04340d76eabdf4efe78599d",
       "src": "https://github.com/stevearc/conform.nvim"
     },
     "cyberdream.nvim": {
@@ -30,11 +30,11 @@
       "src": "https://github.com/rmagatti/logger.nvim"
     },
     "lsp_signature.nvim": {
-      "rev": "0efb088dce050d38a3608ee69f80f2a62cf9849c",
+      "rev": "af7e4074d85d785cf6614352ba9ad3b28a1f8a56",
       "src": "https://github.com/ray-x/lsp_signature.nvim"
     },
     "markview.nvim": {
-      "rev": "633e627f82011dc888ea4444a98c98bd783951b0",
+      "rev": "02824a95a0db2c9fd1bab3adba4510bc8f9c91e4",
       "src": "https://github.com/OXY2DEV/markview.nvim"
     },
     "mason-lspconfig.nvim": {
@@ -50,7 +50,7 @@
       "src": "https://github.com/mason-org/mason.nvim"
     },
     "mini.nvim": {
-      "rev": "0098de999048af0539183d625c52d733318a441b",
+      "rev": "cad365c212fb1e332cb93fa8f72697125799d00a",
       "src": "https://github.com/nvim-mini/mini.nvim"
     },
     "nvim-lspconfig": {
@@ -58,7 +58,7 @@
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "nvim-treesitter": {
-      "rev": "6bc51d020a5e06b7e20ea82dbc47196d3d3027c7",
+      "rev": "544320a9cf5d6bf539ec1cc54d393064015670c4",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter"
     },
     "nvim-treesitter-context": {
@@ -68,6 +68,10 @@
     "oil.nvim": {
       "rev": "0fcc83805ad11cf714a949c98c605ed717e0b83e",
       "src": "https://github.com/stevearc/oil.nvim"
+    },
+    "snacks.nvim": {
+      "rev": "9912042fc8bca2209105526ac7534e9a0c2071b2",
+      "src": "git@github.com:folke/snacks.nvim"
     },
     "tiny-inline-diagnostic.nvim": {
       "rev": "ba133b3e932416e4b9507095731a6d7276878fe8",
