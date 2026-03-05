@@ -23,7 +23,7 @@ end
 
 ---Simple wrapper around vim.pack.add with default opts
 ---@param specs (string|vim.pack.Spec)[] List of plugin specifications.
----@param opts table? Options forwarded to vim.pack.add
+---@param opts? vim.pack.keyset.add Options forwarded to vim.pack.add
 Pack = function(specs, opts)
 	local defaults = {
 		confirm = false,
