@@ -95,6 +95,7 @@ opt.foldcolumn = "1"
 opt.clipboard = "unnamedplus" -- use system clipboard
 
 -- Misc / Performance
+opt.undodir = vim.fn.stdpath("state") .. "/undo"
 opt.updatetime = 200 -- faster CursorHold and completion
 opt.swapfile = false -- no swapfiles
 
@@ -114,7 +115,12 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
 -- Keymaping
 Map("n", "<leader>q", "<cmd> confirm quit<cr>", { desc = "Better quit" })
-Map({ "n", "i", "v", "t", "c" }, "<C-z>", "<Nop>")
+Map(
+	{ "n", "i", "v", "t", "c" },
+	"<C-z>",
+	"<Nop>",
+	{ desc = "disable annoying option that sends neovim to background process" }
+)
 Map("n", "<esc>", "<cmd>noh<cr>")
 
 -- ===============================
