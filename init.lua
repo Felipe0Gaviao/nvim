@@ -114,6 +114,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 })
 
 -- Keymaping
+Map("n", "<leader>w", "<cmd>silent write<cr>", { desc = "Easier Write" })
 Map("n", "<leader>q", "<cmd> confirm quit<cr>", { desc = "Better quit" })
 Map(
 	{ "n", "i", "v", "t", "c" },
