@@ -12,6 +12,7 @@ require("conform").setup({
 		markdown = { "biome" },
 		kotlin = { "kfmt " },
 		rust = { "rustfmt" },
+		dart = { "dart_format" },
 	},
 
 	format_on_save = {
