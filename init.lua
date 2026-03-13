@@ -165,6 +165,7 @@ vim.api.nvim_create_autocmd("VimLeavePre", {
 			"--only",
 			lockfile,
 			"-m",
-			"chore(plugins): update neovim config plugins",
+			"chore(plugins): update neovim config plugins"
 		})
-})
+	end
+	})
