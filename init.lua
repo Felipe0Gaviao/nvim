@@ -167,5 +167,4 @@ vim.api.nvim_create_autocmd("VimLeavePre", {
 			"-m",
 			"chore(plugins): update neovim config plugins",
 		})
-	end,
 })
