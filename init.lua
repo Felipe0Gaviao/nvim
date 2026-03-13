@@ -150,18 +150,22 @@ vim.api.nvim_create_autocmd("PackChanged", {
 
 vim.api.nvim_create_autocmd("VimLeavePre", {
 	callback = function()
-		if commit_pending then
-			local config = vim.fn.stdpath("config")
-
-			vim.system({ "git", "-C", config, "add", "nvim-pack-lock.json" })
-			vim.system({
-				"git",
-				"-C",
-				config,
-				"commit",
-				"-m",
-				"chore(plugins): update neovim config plugins",
-			})
+		if not commit_pending then
+			return
 		end
+
+		local config = vim.fn.stdpath("config")
+		local lockfile = "nvim-pack-lock.json"
+
+		vim.system({
+			"git",
+			"-C",
+			config,
+			"commit",
+			"--only",
+			lockfile,
+			"-m",
+			"chore(plugins): update neovim config plugins",
+		})
 	end,
 })
