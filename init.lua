@@ -140,11 +140,9 @@ local commit_pending = false
 
 vim.api.nvim_create_autocmd("PackChanged", {
 	callback = function(ev)
-		if ev.data.kind ~= "update" and ev.data.kind ~= "install" then
-			return
+		if ev.data.kind == "install" or ev.data.kind == "update" or ev.data.kind == "delete" then
+			commit_pending = true
 		end
-
-		commit_pending = true
 	end,
 })
 
@@ -154,10 +152,12 @@ vim.api.nvim_create_autocmd("VimLeavePre", {
 			return
 		end
 
+		vim.notify("Committing lockfile changes...")
+
 		local config = vim.fn.stdpath("config")
 		local lockfile = "nvim-pack-lock.json"
 
-		vim.system({
+		local result = vim.system({
 			"git",
 			"-C",
 			config,
@@ -165,7 +165,14 @@ vim.api.nvim_create_autocmd("VimLeavePre", {
 			"--only",
 			lockfile,
 			"-m",
-			"chore(plugins): update neovim config plugins"
-		})
-	end
-	})
+			"chore(plugins): update lockfile",
+		}, { text = true }):wait()
+
+		if result.code ~= 0 then
+			local output = result.stdout .. result.stderr
+			if not output:find("nothing to commit") then
+				vim.notify("git commit failed:\n" .. result.stderr, vim.log.levels.ERROR)
+			end
+		end
+	end,
+})
