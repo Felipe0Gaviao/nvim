@@ -19,7 +19,6 @@ treesitter.install({
 	"html_tags",
 	"javascript",
 	"json",
-	"kotlin",
 	"lua",
 	"luadoc",
 	"luap",
@@ -32,9 +31,8 @@ treesitter.install({
 	"toml",
 	"typescript",
 	"zsh",
-	-- may be needed later
-	-- "htmljango",
-	-- "jinja",
+	"htmljango",
+	"jinja",
 })
 
 vim.api.nvim_create_autocmd("FileType", {
