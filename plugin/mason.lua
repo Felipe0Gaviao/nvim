@@ -46,24 +46,8 @@ require("mason-tool-installer").setup({
 
 		-- Jinja formatter
 		-- Might be necessary later
-		-- "djlint",
+		"djlint",
 	},
 	auto_update = true,
 	run_on_start = true,
 })
-
-vim.lsp.config("dartls", {
-	cmd = { "dart", "language-server", "--protocol=lsp" },
-	filetypes = { "dart" },
-	root_markers = { "pubspec.yaml" },
-
-	init_options = {
-		closingLabels = true,
-		flutterOutline = true,
-		onlyAnalyzeProjectsWithOpenFiles = true,
-		outline = true,
-		suggestFromUnimportedLibraries = true,
-	},
-})
-
-vim.lsp.enable("dartls")
