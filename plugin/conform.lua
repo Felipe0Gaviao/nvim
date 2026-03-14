@@ -10,9 +10,7 @@ require("conform").setup({
 		json = { "biome" },
 		yaml = { "biome" },
 		markdown = { "biome" },
-		kotlin = { "kfmt " },
 		rust = { "rustfmt" },
-		dart = { "dart_format" },
 	},
 
 	format_on_save = {
