@@ -51,3 +51,7 @@ require("mason-tool-installer").setup({
 	auto_update = true,
 	run_on_start = true,
 })
+
+vim.lsp.config("taplo", {
+	root_dir = vim.fn.expand("~"),
+})
