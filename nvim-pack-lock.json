@@ -71,7 +71,7 @@
     },
     "snacks.nvim": {
       "rev": "a049339328e2599ad6e85a69fa034ac501e921b2",
-      "src": "git@github.com:folke/snacks.nvim"
+      "src": "https://github.com/folke/snacks.nvim"
     },
     "tiny-inline-diagnostic.nvim": {
       "rev": "ba133b3e932416e4b9507095731a6d7276878fe8",
