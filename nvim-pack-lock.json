@@ -21,10 +21,6 @@
       "rev": "d2d6923c9b9e0e43f0b9b566f261a8b1ae016540",
       "src": "https://github.com/rmagatti/goto-preview"
     },
-    "lazygit.nvim": {
-      "rev": "a04ad0dbc725134edbee3a5eea29290976695357",
-      "src": "https://github.com/kdheepak/lazygit.nvim"
-    },
     "logger.nvim": {
       "rev": "63dd10c9b9a159fd6cfe08435d9606384ff103c5",
       "src": "https://github.com/rmagatti/logger.nvim"
