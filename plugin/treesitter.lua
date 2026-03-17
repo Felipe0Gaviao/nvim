@@ -31,7 +31,7 @@ treesitter.install({
 	"toml",
 	"typescript",
 	"zsh",
-	"htmljango",
+	"htmldjango",
 	"jinja",
 })
 
