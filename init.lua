@@ -128,10 +128,17 @@ Map("n", "<esc>", "<cmd>noh<cr>")
 -- Load Colorscheme Separately
 -- ===============================
 Pack({
-	"https://github.com/scottmckendry/cyberdream.nvim",
+	{
+		src = "https://github.com/catppuccin/nvim",
+		name = "catppuccin",
+	},
 })
 
-vim.cmd.colorscheme("cyberdream")
+require("catppuccin").setup({
+	flavour = "latte",
+})
+
+vim.cmd.colorscheme("catppuccin")
 
 -- ===============================
 -- Automate nvim-pack-lock.json chore commit
