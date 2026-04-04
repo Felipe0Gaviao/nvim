@@ -1,7 +1,7 @@
 {
   "plugins": {
     "blink.cmp": {
-      "rev": "451168851e8e2466bc97ee3e026c3dcb9141ce07",
+      "rev": "78336bc89ee5365633bcf754d93df01678b5c08f",
       "src": "https://github.com/saghen/blink.cmp",
       "version": ">=0.0.0"
     },
@@ -30,7 +30,7 @@
       "src": "https://github.com/rmagatti/logger.nvim"
     },
     "lsp_signature.nvim": {
-      "rev": "af7e4074d85d785cf6614352ba9ad3b28a1f8a56",
+      "rev": "a381eb443cae078541297dc71674fa9c95e52a9e",
       "src": "https://github.com/ray-x/lsp_signature.nvim"
     },
     "markview.nvim": {
