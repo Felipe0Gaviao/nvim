@@ -136,43 +136,31 @@ vim.cmd.colorscheme("dayfox")
 -- ===============================
 -- Automate nvim-pack-lock.json chore commit
 -- ===============================
-local commit_pending = false
-
 vim.api.nvim_create_autocmd("PackChanged", {
 	callback = function(ev)
-		if ev.data.kind == "install" or ev.data.kind == "update" or ev.data.kind == "delete" then
-			commit_pending = true
-		end
-	end,
-})
-
-vim.api.nvim_create_autocmd("VimLeavePre", {
-	callback = function()
-		if not commit_pending then
-			return
-		end
-
-		vim.notify("Committing lockfile changes...")
-
+		local name = ev.data.spec.name
+		local kind = ev.data.kind
+		local msg = string.format("chore(plugins): %s %s", kind, name)
 		local config = vim.fn.stdpath("config")
-		local lockfile = "nvim-pack-lock.json"
 
-		local result = vim.system({
-			"git",
-			"-C",
-			config,
-			"commit",
-			"--only",
-			lockfile,
-			"-m",
-			"chore(plugins): update lockfile",
-		}, { text = true }):wait()
+		vim.defer_fn(function()
+			local result = vim.system({
+				"git",
+				"-C",
+				config,
+				"commit",
+				"--only",
+				"nvim-pack-lock.json",
+				"-m",
+				msg,
+			}, { text = true }):wait()
 
-		if result.code ~= 0 then
-			local output = result.stdout .. result.stderr
-			if not output:find("nothing to commit") then
-				vim.notify("git commit failed:\n" .. result.stderr, vim.log.levels.ERROR)
+			if result.code ~= 0 then
+				local output = (result.stdout or "") .. (result.stderr or "")
+				if not output:find("nothing to commit") then
+					vim.notify("lockfile commit failed:\n" .. result.stderr, vim.log.levels.ERROR)
+				end
 			end
-		end
+		end, 500)
 	end,
 })
