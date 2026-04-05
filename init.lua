@@ -128,17 +128,10 @@ Map("n", "<esc>", "<cmd>noh<cr>")
 -- Load Colorscheme Separately
 -- ===============================
 Pack({
-	{
-		src = "https://github.com/catppuccin/nvim",
-		name = "catppuccin",
-	},
+	"https://github.com/EdenEast/nightfox.nvim",
 })
 
-require("catppuccin").setup({
-	flavour = "latte",
-})
-
-vim.cmd.colorscheme("catppuccin")
+vim.cmd.colorscheme("dayfox")
 
 -- ===============================
 -- Automate nvim-pack-lock.json chore commit
