@@ -3,8 +3,6 @@ Pack({
 	"https://github.com/nvim-treesitter/nvim-treesitter-context",
 })
 
-local treesitter = require("nvim-treesitter")
-
 local ensure_installed = {
 	-- queries-only, invisible to FileType autocmd
 	"ecma",
@@ -18,7 +16,7 @@ local ensure_installed = {
 	"gitcommit",
 	"gitignore",
 	"gitattributes",
-	-- preload for your stack
+	-- preload
 	"java",
 	"properties",
 	"ini",
@@ -27,7 +25,8 @@ local ensure_installed = {
 	"editorconfig",
 	"xml",
 }
-treesitter.install(ensure_installed)
+
+local treesitter = require("nvim-treesitter")
 
 vim.api.nvim_create_autocmd("FileType", {
 	callback = function(ev)
@@ -61,4 +60,19 @@ vim.api.nvim_create_autocmd("FileType", {
 	end,
 })
 
-require("treesitter-context").setup({ mode = "topline" })
+require("lze").load({
+	{
+		"nvim-treesitter",
+		event = "DeferredUIEnter",
+		after = function()
+			treesitter.install(ensure_installed)
+		end,
+	},
+	{
+		"nvim-treesitter-context",
+		on_plugin = { "nvim-treesitter" },
+		after = function()
+			require("treesitter-context").setup({ mode = "topline" })
+		end,
+	},
+})
