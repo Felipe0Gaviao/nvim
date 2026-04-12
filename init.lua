@@ -127,10 +127,13 @@ vim.diagnostic.config({ virtual_text = false }) -- inline diagnostics
 vim.api.nvim_create_autocmd("LspAttach", {
 	callback = function(args)
 		local buf = args.buf
-
 		vim.lsp.inlay_hint.enable(true, { bufnr = buf })
-
 		vim.keymap.set("n", "K", vim.lsp.buf.hover, { buffer = buf })
+		-- attach lsp_signature if loaded
+		local ok, sig = pcall(require, "lsp_signature")
+		if ok then
+			sig.on_attach({}, buf)
+		end
 	end,
 })
 
