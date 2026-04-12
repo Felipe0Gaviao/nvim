@@ -39,12 +39,17 @@ Pack = function(specs, opts)
 end
 
 -- ===============================
--- Core Editor Options
+-- Core Plugins
 -- ===============================
---
--- Installing mini.nvim to deal with some of those options for me with mini.basics
 Pack({
+	-- Installing Tiny.cmdlines
+	"https://github.com/rachartier/tiny-cmdline.nvim",
+	-- Installing mini.nvim to deal with some of those basics for me with mini.basics
 	"https://github.com/nvim-mini/mini.nvim",
+})
+
+require("tiny-cmdline").setup({
+	on_reposition = require("tiny-cmdline").adapters.blink,
 })
 
 require("mini.basics").setup({
@@ -81,9 +86,14 @@ require("mini.pairs").setup() -- auto pairs
 require("mini.statusline").setup() -- changes the statusline at the bottom of the window
 require("mini.surround").setup() -- surround text by selecting in visual mode and pressing "sa"
 
+-- ===============================
+-- Core Config Options
+-- ===============================
+
 -- UI
 opt.scrolloff = 8 -- vertical scroll buffer
 opt.sidescrolloff = 8 -- horizontal scroll buffer
+opt.cmdheight = 0
 
 -- Tabs & Indentation
 opt.tabstop = 4
