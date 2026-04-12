@@ -1,5 +1,11 @@
--- Experimental Lua Module loader
+-- ===============================
+-- Experimenal Stuff
+-- ===============================
+-- Enables the experimental Lua module loader
 -- vim.loader.enable() -- adding this gave some errors, will look into it soon
+-- Experimenal Ui2 Module
+require("vim._core.ui2").enable()
+--
 -- ===============================
 -- Core Shortcuts
 -- ===============================
