@@ -29,6 +29,10 @@
       "rev": "a65b38f260cc3470a05b4afb84c8d868617d476d",
       "src": "https://github.com/ray-x/lsp_signature.nvim"
     },
+    "lze": {
+      "rev": "c4403a54d9cd94156d7a149d830f39a4a437f048",
+      "src": "https://github.com/BirdeeHub/lze"
+    },
     "markview.nvim": {
       "rev": "1861f959599ae03cfd59f56222a542035b0cd947",
       "src": "https://github.com/OXY2DEV/markview.nvim"
