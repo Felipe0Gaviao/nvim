@@ -42,11 +42,16 @@ end
 -- Core Plugins
 -- ===============================
 Pack({
+	"https://github.com/BirdeeHub/lze",
 	-- Installing Tiny.cmdlines
 	"https://github.com/rachartier/tiny-cmdline.nvim",
 	-- Installing mini.nvim to deal with some of those basics for me with mini.basics
 	"https://github.com/nvim-mini/mini.nvim",
 })
+
+vim.g.lze = {
+	verbose = true,
+}
 
 require("tiny-cmdline").setup({
 	on_reposition = require("tiny-cmdline").adapters.blink,
