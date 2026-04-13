@@ -1,6 +1,4 @@
-Pack({
-	"https://github.com/folke/snacks.nvim",
-})
+Pack({ "https://github.com/folke/snacks.nvim" })
 
 local Snacks = require("snacks")
 Snacks.setup({
@@ -23,25 +21,10 @@ Snacks.setup({
 			border = "rounded",
 			width = 0.8,
 			height = 0.8,
-			keys = {
-				term_normal = {
-					"<esc>",
-					function(self)
-						self.esc_timer = self.esc_timer or (vim.uv or vim.loop).new_timer()
-						if self.esc_timer:is_active() then
-							self.esc_timer:stop()
-							vim.cmd("stopinsert")
-						else
-							self.esc_timer:start(200, 0, function() end)
-							return "<esc>"
-						end
-					end,
-					mode = "t",
-					expr = true,
-					desc = "Double escape to normal mode",
-				},
-			},
 		},
+	},
+	input = {
+		enabled = true,
 	},
 })
 
@@ -51,7 +34,8 @@ Map({ "n", "t" }, [[<C-\>]], function()
 end)
 Map("n", "<leader>t", function()
 	Snacks.terminal.toggle()
-end)
+end, { desc = "Toggle Snacks terminal" })
+Map("t", "<esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
 
 vim.api.nvim_create_autocmd("User", {
 	pattern = "OilActionsPost",
