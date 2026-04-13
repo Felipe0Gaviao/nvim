@@ -13,7 +13,14 @@ require("lze").load({
 		after = function()
 			require("blink.cmp").setup({
 				sources = {
-					default = { "lsp", "path", "buffer" },
+					default = { "lazydev", "lsp", "path", "buffer" },
+					providers = {
+						lazydev = {
+							name = "LazyDev",
+							module = "lazydev.integrations.blink",
+							score_offset = 100,
+						},
+					},
 				},
 				fuzzy = {
 					implementation = "rust",
