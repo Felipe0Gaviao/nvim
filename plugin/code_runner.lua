@@ -9,4 +9,4 @@ require("code_runner").setup({
 	},
 })
 
-Map("n", "<leader>rr", "<cmd>RunCode<cr>")
+Map("n", "<leader>rr", "<cmd>RunCode<cr>", { desc = "Run current file" })

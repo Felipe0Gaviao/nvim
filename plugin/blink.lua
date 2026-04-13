@@ -13,7 +13,7 @@ require("lze").load({
 		after = function()
 			require("blink.cmp").setup({
 				sources = {
-					default = { "lsp", "path", "snippets", "buffer" },
+					default = { "lsp", "path", "buffer" },
 				},
 				fuzzy = {
 					implementation = "rust",
@@ -22,9 +22,9 @@ require("lze").load({
 					},
 				},
 				keymap = {
-					preset = "default", -- keep default bindings
-					-- Accept current completion with Tab
-					["<tab>"] = { "accept", "fallback" },
+					preset = "default",
+					["<CR>"] = { "fallback" }, -- CR never accepts, always just newline
+					["<Tab>"] = { "accept", "fallback" }, -- Tab accepts or falls through
 				},
 				completion = {
 					list = {
