@@ -146,7 +146,7 @@ Map(
 	"<Nop>",
 	{ desc = "disable annoying option that sends neovim to background process" }
 )
-Map("n", "<esc>", "<cmd>noh<cr>")
+Map("n", "<esc>", "<cmd>noh<cr>", { desc = "Clear highlights" })
 
 -- ===============================
 -- Load Colorscheme Separately
