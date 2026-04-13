@@ -5,29 +5,8 @@
 -- vim.loader.enable() -- adding this gave some errors, will look into it soon
 -- Experimenal Ui2 Module
 require("vim._core.ui2").enable()
---
--- ===============================
--- Core Shortcuts
--- ===============================
 
----Create a simple shortcut to vim.opt
-local opt = vim.opt
-
----Create a keymap with sane defaults
----@param mode string|string[] Mode(s), e.g. "n" or { "n", "v" }
----@param lhs string Left-hand side
----@param rhs string|function Right-hand side
----@param opts? vim.keymap.set.Opts Keymap options
-Map = function(mode, lhs, rhs, opts)
-	local defaults = {
-		silent = true,
-		noremap = true,
-	}
-	opts = vim.tbl_extend("force", defaults, opts or {})
-	vim.keymap.set(mode, lhs, rhs, opts)
-end
-
----Simple wrapper around vim.pack.add with default opts
+---Simple wrapper around vim.pack.add with some default opts
 ---@param specs (string|vim.pack.Spec)[] List of plugin specifications.
 ---@param opts? vim.pack.keyset.add Options forwarded to vim.pack.add
 Pack = function(specs, opts)
@@ -51,6 +30,14 @@ Pack({
 	"https://github.com/folke/snacks.nvim",
 })
 
+vim.g.lze = {
+	verbose = true,
+}
+
+require("tiny-cmdline").setup({
+	on_reposition = require("tiny-cmdline").adapters.blink,
+})
+
 require("mini.basics").setup({
 	options = {
 		basic = true,
@@ -69,17 +56,39 @@ require("mini.basics").setup({
 	silent = true,
 })
 
-vim.g.lze = {
-	verbose = true,
-}
-
-require("tiny-cmdline").setup({
-	on_reposition = require("tiny-cmdline").adapters.blink,
+require("snacks").setup({
+	bigfile = {
+		enabled = true,
+	},
+	git = {
+		enabled = true,
+	},
+	lazygit = {
+		enabled = true,
+	},
+	rename = {
+		enabled = true,
+	},
+	terminal = {
+		enabled = true,
+		win = {
+			style = "float",
+			border = "rounded",
+			width = 0.8,
+			height = 0.8,
+		},
+	},
+	input = {
+		enabled = true,
+	},
 })
 
 -- ===============================
 -- Core Config Options
 -- ===============================
+
+---Create a simple shortcut to vim.opt
+local opt = vim.opt
 
 -- UI
 opt.scrolloff = 8 -- vertical scroll buffer
@@ -122,6 +131,20 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		end
 	end,
 })
+
+---Create a keymap with sane defaults
+---@param mode string|string[]
+---@param lhs string
+---@param rhs string|function
+---@param opts? snacks.keymap.set.Opts
+Map = function(mode, lhs, rhs, opts)
+	local defaults = {
+		silent = true,
+		noremap = true,
+	}
+	opts = vim.tbl_extend("force", defaults, opts or {})
+	require("snacks.keymap").set(mode, lhs, rhs, opts)
+end
 
 -- Keymaping
 Map("n", "<leader>w", "<cmd>silent write<cr>", { desc = "Easier Write" })

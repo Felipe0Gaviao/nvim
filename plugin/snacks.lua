@@ -1,32 +1,6 @@
 Pack({ "https://github.com/folke/snacks.nvim" })
 
 local Snacks = require("snacks")
-Snacks.setup({
-	bigfile = {
-		enabled = true,
-	},
-	git = {
-		enabled = true,
-	},
-	lazygit = {
-		enabled = true,
-	},
-	rename = {
-		enabled = true,
-	},
-	terminal = {
-		enabled = true,
-		win = {
-			style = "float",
-			border = "rounded",
-			width = 0.8,
-			height = 0.8,
-		},
-	},
-	input = {
-		enabled = true,
-	},
-})
 
 Map("n", "<leader>gg", Snacks.lazygit.open, { desc = "Lazygit Snacks Integration" })
 Map({ "n", "t" }, [[<C-\>]], function()
