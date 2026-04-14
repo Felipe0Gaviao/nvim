@@ -1,4 +1,5 @@
 return {
+	--- @type lspconfig.settings.basedpyright
 	settings = {
 		basedpyright = {
 			analysis = {

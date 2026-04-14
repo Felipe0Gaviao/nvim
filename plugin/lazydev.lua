@@ -8,6 +8,7 @@ require("lze").load({
 			require("lazydev").setup({
 				library = {
 					{ path = "${3rd}/luv/library", words = { "vim%.uv" } },
+					{ path = "nvim-lspconfig", words = { "lspconfig" } },
 				},
 			})
 		end,
