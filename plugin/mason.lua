@@ -14,7 +14,7 @@ local lsps = {
 }
 
 local formatters = {
-	"biome",
+	"prettier",
 	"stylua",
 	"taplo",
 	"ruff",

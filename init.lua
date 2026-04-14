@@ -156,6 +156,7 @@ Map(
 	{ desc = "disable annoying option that sends neovim to background process" }
 )
 Map("n", "<esc>", "<cmd>noh<cr>", { desc = "Clear highlights" })
+Map("n", "<leader>ca", vim.lsp.buf.code_action, { lsp = { method = "textDocument/codeAction" }, desc = "Code Action" })
 
 -- ===============================
 -- Load Colorscheme Separately
