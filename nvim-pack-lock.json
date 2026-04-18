@@ -42,7 +42,7 @@
       "src": "https://github.com/BirdeeHub/lze"
     },
     "markview.nvim": {
-      "rev": "288db27ed4bf799cafe2d9d607fa967050bd359a",
+      "rev": "e27dee8b2a61f89ac3a06deae0264ad1d3f7b62c",
       "src": "https://github.com/OXY2DEV/markview.nvim"
     },
     "mason-lspconfig.nvim": {
