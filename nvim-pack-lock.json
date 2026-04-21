@@ -38,7 +38,7 @@
       "src": "https://github.com/ray-x/lsp_signature.nvim"
     },
     "lze": {
-      "rev": "eaf8e4b0d9a6438b82d17d2018cc02255a89ce1c",
+      "rev": "1f7bccd7afe3635fbe8dd308cfec2ed528e7febb",
       "src": "https://github.com/BirdeeHub/lze"
     },
     "markview.nvim": {
@@ -58,7 +58,7 @@
       "src": "https://github.com/mason-org/mason.nvim"
     },
     "mini.nvim": {
-      "rev": "418ef4930ddabe80f449c6f1323f8b6abb172d1c",
+      "rev": "d76247d6e3ffa222784be5b156770e37c665f67e",
       "src": "https://github.com/nvim-mini/mini.nvim"
     },
     "nightfox.nvim": {
@@ -66,7 +66,7 @@
       "src": "https://github.com/EdenEast/nightfox.nvim"
     },
     "nvim-lspconfig": {
-      "rev": "4b7fbaa239c5db6b36f424a4521ca9f1a401be33",
+      "rev": "e05fb8c3bd61d909dacff24f77f23beb644daf54",
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "nvim-treesitter": {
