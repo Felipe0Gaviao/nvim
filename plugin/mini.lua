@@ -1,22 +1,22 @@
 Pack({ "https://github.com/nvim-mini/mini.nvim" })
 
-local MiniAi = require("mini.ai")
-MiniAi.setup({
+local miniai = require("mini.ai")
+miniai.setup({
 	custom_textobjects = {
 		-- Function definition (overrides builtin 'f' which does function *calls*)
-		f = MiniAi.gen_spec.treesitter({
+		f = miniai.gen_spec.treesitter({
 			a = "@function.outer",
 			i = "@function.inner",
 		}),
-		c = MiniAi.gen_spec.treesitter({
+		c = miniai.gen_spec.treesitter({
 			a = "@class.outer",
 			i = "@class.inner",
 		}),
-		o = MiniAi.gen_spec.treesitter({
+		o = miniai.gen_spec.treesitter({
 			a = "@conditional.outer",
 			i = "@conditional.inner",
 		}),
-		l = MiniAi.gen_spec.treesitter({
+		l = miniai.gen_spec.treesitter({
 			a = "@loop.outer",
 			i = "@loop.inner",
 		}),
@@ -58,6 +58,7 @@ require("mini.notify").setup({
 }) -- adds better notifications
 require("mini.operators").setup() -- not sure if i'm going to use this enough to be worth it, remember keymap "g="
 require("mini.pairs").setup() -- auto pairs
+require("mini.sessions").setup({ autoread = true })
 require("mini.snippets").setup({
 	snippets = {
 		require("mini.snippets").gen_loader.from_lang(),
