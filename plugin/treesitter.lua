@@ -60,6 +60,17 @@ vim.api.nvim_create_autocmd("FileType", {
 	end,
 })
 
+vim.api.nvim_create_autocmd("PackChanged", {
+	---@param ev {data: vim.event.packchanged.data }
+	callback = function(ev)
+		local name, kind = ev.data.spec.name, ev.data.kind
+
+		if name == "nvim-treesitter" and vim.tbl_contains({ "update", "install" }, kind) then
+			treesitter.update()
+		end
+	end,
+})
+
 require("lze").load({
 	{
 		"nvim-treesitter",
