@@ -1,12 +1,17 @@
-Pack({
-	"https://github.com/CRAG666/code_runner.nvim",
-})
+Pack({ "https://github.com/CRAG666/code_runner.nvim" })
 
-require("code_runner").setup({
-	filetype = {
-		python = "uv run $file",
-		rust = "cargo run",
+local runners = {
+	python = "uv run $file",
+	rust = "cargo run",
+}
+
+require("lze").load({
+	{
+		"code_runner.nvim",
+		ft = vim.tbl_keys(runners),
+		after = function()
+			require("code_runner").setup({ filetype = runners })
+			Map("n", "<leader>rr", "<cmd>RunCode<cr>", { desc = "Run current file" })
+		end,
 	},
 })
-
-Map("n", "<leader>rr", "<cmd>RunCode<cr>", { desc = "Run current file" })
