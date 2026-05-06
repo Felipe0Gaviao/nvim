@@ -161,11 +161,7 @@ Map("n", "<leader>ca", vim.lsp.buf.code_action, { lsp = { method = "textDocument
 -- ===============================
 -- Load Colorscheme Separately
 -- ===============================
-Pack({
-	"https://github.com/EdenEast/nightfox.nvim",
-})
-
-vim.cmd.colorscheme("dayfox")
+vim.cmd.colorscheme("miniwinter")
 
 -- ===============================
 -- Automate nvim-pack-lock.json chore commit
