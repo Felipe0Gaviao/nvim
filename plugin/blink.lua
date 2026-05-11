@@ -1,24 +1,13 @@
 vim.pack.add({ "https://github.com/saghen/blink.lib", "https://github.com/saghen/blink.cmp" })
 
-vim.api.nvim_create_autocmd("PackChanged", {
-	---@param ev {data: vim.event.packchanged.data}
-	callback = function(ev)
-		if not vim.tbl_contains({ "blink.lib", "blink.cmp" }, ev.data.spec.name) then
-			return
-		end
-		if not vim.tbl_contains({ "update", "install" }, ev.data.kind) then
-			return
-		end
-		require("blink.cmp").build()
-	end,
-})
-
 require("lze").load({
 	{
 		"blink.cmp",
 		event = { "InsertEnter", "CmdlineEnter" },
 		after = function()
-			require("blink.cmp").setup({
+            local blink = require('blink.cmp')
+            blink.build()
+			blink.setup({
 				sources = {
 					default = { "lazydev", "lsp", "path", "buffer" },
 					providers = {
