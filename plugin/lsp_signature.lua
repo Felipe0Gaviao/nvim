@@ -10,7 +10,7 @@ require("lze").load({
 			require("lsp_signature").setup({
 				bind = true,
 				floating_window = true,
-				hint_enable = false, -- u already use inlay hints
+				hint_enable = false, -- i already use inlay hints
 
 				handler_opts = {
 					border = "rounded",
