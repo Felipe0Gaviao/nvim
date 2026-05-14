@@ -3,7 +3,17 @@ Pack({ "https://github.com/stevearc/conform.nvim" })
 require("conform").setup({
 	formatters_by_ft = {
 		lua = { "stylua" },
-		python = { "ruff_fix", "ruff_format", "ruff_organize_imports" },
+		python = function(bufnr)
+			local start = vim.api.nvim_buf_get_name(bufnr)
+			local pyproject_path = vim.fs.find({ "pyproject.toml" }, { path = start, upward = true })[1]
+			if pyproject_path then
+				local lines = vim.fn.readfile(pyproject_path)
+				if vim.tbl_contains(lines, "[tool.black]") then
+					return { "black" }
+				end
+			end
+			return { "ruff_fix", "ruff_format", "ruff_organize_imports" }
+		end,
 		javascript = { "prettier" },
 		typescript = { "prettier" },
 		toml = { "taplo" },
@@ -12,10 +22,9 @@ require("conform").setup({
 		markdown = { "prettier" },
 		rust = { "rustfmt" },
 	},
-
-	format_on_save = {
-		lsp_fallback = true,
-		timeout_ms = 500,
+	format_after_save = {
+		lsp_format = "fallback",
+        async = true
 	},
 })
 
