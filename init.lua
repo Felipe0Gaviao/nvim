@@ -60,9 +60,6 @@ require("snacks").setup({
 	bigfile = {
 		enabled = true,
 	},
-	git = {
-		enabled = true,
-	},
 	lazygit = {
 		enabled = true,
 	},
