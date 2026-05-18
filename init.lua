@@ -166,6 +166,7 @@ vim.cmd.colorscheme("miniwinter")
 -- Automate nvim-pack-lock.json chore commit
 -- ===============================
 vim.api.nvim_create_autocmd("PackChanged", {
+    ---@param ev {data: vim.event.packchanged.data}
 	callback = function(ev)
 		local name = ev.data.spec.name
 		local kind = ev.data.kind
