@@ -23,7 +23,8 @@ require("lze").load({
 				},
 				keymap = {
 					preset = "default",
-					["<CR>"] = { "fallback" }, -- CR never accepts, always just newline
+                    ["<C-j>"] = { "select_next", "fallback"},
+                    ["<C-k>"] = { "select_prev", "fallback"},
 					["<Tab>"] = { "accept", "fallback" }, -- Tab accepts or falls through
 				},
 				completion = {
