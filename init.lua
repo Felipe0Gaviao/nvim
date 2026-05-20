@@ -40,7 +40,7 @@ require("mini.basics").setup({
 	options = {
 		basic = true,
 		extra_ui = true,
-		win_borders = "rounded",
+		win_borders = "solid",
 	},
 	mappings = {
 		basic = true,
@@ -105,36 +105,3 @@ vim.keymap.set("n", "<esc>", "<cmd>noh<cr>", { desc = "Clear highlights" })
 -- Load Colorscheme Separately
 -- ===============================
 vim.cmd.colorscheme("miniwinter")
-
--- ===============================
--- Automate nvim-pack-lock.json chore commit
--- ===============================
-vim.api.nvim_create_autocmd("PackChanged", {
-    ---@param ev {data: vim.event.packchanged.data}
-	callback = function(ev)
-		local name = ev.data.spec.name
-		local kind = ev.data.kind
-		local msg = string.format("chore(plugins): %s %s", kind, name)
-		local config = vim.fn.stdpath("config")
-
-		vim.defer_fn(function()
-			local result = vim.system({
-				"git",
-				"-C",
-				config,
-				"commit",
-				"--only",
-				"nvim-pack-lock.json",
-				"-m",
-				msg,
-			}, { text = true }):wait()
-
-			if result.code ~= 0 then
-				local output = (result.stdout or "") .. (result.stderr or "")
-				if not output:find("nothing to commit") then
-					vim.notify("lockfile commit failed:\n" .. result.stderr, vim.log.levels.ERROR)
-				end
-			end
-		end, 500)
-	end,
-})
