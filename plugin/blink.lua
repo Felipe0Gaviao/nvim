@@ -1,12 +1,12 @@
-vim.pack.add({ "https://github.com/saghen/blink.lib", "https://github.com/saghen/blink.cmp" })
+Pack({ "https://github.com/saghen/blink.lib", "https://github.com/saghen/blink.cmp" })
 
 require("lze").load({
 	{
 		"blink.cmp",
 		event = { "InsertEnter", "CmdlineEnter" },
 		after = function()
-            local blink = require('blink.cmp')
-            blink.build()
+			local blink = require("blink.cmp")
+			blink.build()
 			blink.setup({
 				sources = {
 					default = { "lazydev", "lsp", "path", "buffer" },
@@ -23,8 +23,8 @@ require("lze").load({
 				},
 				keymap = {
 					preset = "default",
-                    ["<C-j>"] = { "select_next", "fallback"},
-                    ["<C-k>"] = { "select_prev", "fallback"},
+					["<C-j>"] = { "select_next", "fallback" },
+					["<C-k>"] = { "select_prev", "fallback" },
 					["<Tab>"] = { "accept", "fallback" }, -- Tab accepts or falls through
 				},
 				completion = {
