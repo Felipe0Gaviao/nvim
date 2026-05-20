@@ -1,11 +1,11 @@
 {
   "plugins": {
     "SchemaStore.nvim": {
-      "rev": "a1fb3d4eb1c2ad42c5b3187ca24c57da5d42ab83",
+      "rev": "59b4296a733a5b93ce2aee23ee406b6d279183cc",
       "src": "https://github.com/b0o/SchemaStore.nvim"
     },
     "blink.cmp": {
-      "rev": "2ef3db111181c5eef22a462aa0122349a6027f28",
+      "rev": "35e3923a09ff3db150ceff80004befcbbfa071a0",
       "src": "https://github.com/saghen/blink.cmp"
     },
     "blink.lib": {
@@ -33,7 +33,7 @@
       "src": "https://github.com/rmagatti/logger.nvim"
     },
     "lsp_signature.nvim": {
-      "rev": "f40bcf203812beaf26766ec0bc169a7f429fd730",
+      "rev": "b7ace9ddb1640ce266012a45a672dfdaedfa5ec6",
       "src": "https://github.com/ray-x/lsp_signature.nvim"
     },
     "lze": {
@@ -53,15 +53,15 @@
       "src": "https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim"
     },
     "mason.nvim": {
-      "rev": "8e921c2b68571e978db5d4d3fef9c9a7f8755473",
+      "rev": "cbf8d285e1462dd24acf3507817be2bbcb035919",
       "src": "https://github.com/mason-org/mason.nvim"
     },
     "mini.nvim": {
-      "rev": "6a8aab4b07c6caa1d0643c1c9dccd5b2d5f5e094",
+      "rev": "264b5c8fc6e82212af0dc5c345145cfa916efeb6",
       "src": "https://github.com/nvim-mini/mini.nvim"
     },
     "nvim-lspconfig": {
-      "rev": "3de240997fc3208eb29df5e5c17ba4665961bd84",
+      "rev": "deb0df61b2d6691e745b16a42755e10ad38218e9",
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "nvim-treesitter": {
