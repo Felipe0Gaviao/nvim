@@ -22,9 +22,8 @@ require("conform").setup({
 		markdown = { "prettier" },
 		rust = { "rustfmt" },
 	},
-	format_after_save = {
+	format_on_save = {
 		lsp_format = "fallback",
-        async = true
 	},
 })
 
