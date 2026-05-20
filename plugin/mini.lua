@@ -1,30 +1,30 @@
 Pack({ "https://github.com/nvim-mini/mini.nvim" })
 
-local miniai = require("mini.ai")
-miniai.setup({
+local MiniAi = require("mini.ai")
+MiniAi.setup({
 	custom_textobjects = {
 		-- Function definition (overrides builtin 'f' which does function *calls*)
-		f = miniai.gen_spec.treesitter({
+		f = MiniAi.gen_spec.treesitter({
 			a = "@function.outer",
 			i = "@function.inner",
 		}),
-		c = miniai.gen_spec.treesitter({
+		c = MiniAi.gen_spec.treesitter({
 			a = "@class.outer",
 			i = "@class.inner",
 		}),
-		o = miniai.gen_spec.treesitter({
+		o = MiniAi.gen_spec.treesitter({
 			a = "@conditional.outer",
 			i = "@conditional.inner",
 		}),
-		l = miniai.gen_spec.treesitter({
+		l = MiniAi.gen_spec.treesitter({
 			a = "@loop.outer",
 			i = "@loop.inner",
 		}),
 	},
 })
 
-local miniclue = require("mini.clue")
-miniclue.setup({
+local MiniClue = require("mini.clue")
+MiniClue.setup({
 	triggers = {
 		{ mode = { "n", "x" }, keys = "<Leader>" },
 		{ mode = "n", keys = "[" },
@@ -36,14 +36,29 @@ miniclue.setup({
 		{ mode = "n", keys = "<C-w>" },
 	},
 	clues = {
-		miniclue.gen_clues.square_brackets(),
-		miniclue.gen_clues.g(),
-		miniclue.gen_clues.z(),
-		miniclue.gen_clues.marks(),
-		miniclue.gen_clues.registers(),
-		miniclue.gen_clues.windows(),
+		MiniClue.gen_clues.square_brackets(),
+		MiniClue.gen_clues.g(),
+		MiniClue.gen_clues.z(),
+		MiniClue.gen_clues.marks(),
+		MiniClue.gen_clues.registers(),
+		MiniClue.gen_clues.windows(),
 	},
 })
+
+local MiniFiles = require("mini.files")
+MiniFiles.setup({
+    windows = {
+        preview = true,
+        width_focus = 40,
+        width_nofocus = 15,
+        width_preview = 35,
+    },
+})
+
+vim.keymap.set('n', '-', function ()
+    MiniFiles.open(vim.api.nvim_buf_get_name(0))
+end)
+
 require("mini.icons").setup()
 require("mini.indentscope").setup({
 	draw = {

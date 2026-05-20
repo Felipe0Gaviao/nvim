@@ -26,8 +26,6 @@ Pack({
 	"https://github.com/rachartier/tiny-cmdline.nvim",
 	-- Installing mini.nvim to deal with some of those basics for me with mini.basics
 	"https://github.com/nvim-mini/mini.nvim",
-	-- Installing Snacks here to set some things available in this file
-	"https://github.com/folke/snacks.nvim",
 })
 
 vim.g.lze = {
@@ -56,29 +54,6 @@ require("mini.basics").setup({
 	silent = true,
 })
 
-require("snacks").setup({
-	bigfile = {
-		enabled = true,
-	},
-	lazygit = {
-		enabled = true,
-	},
-	rename = {
-		enabled = true,
-	},
-	terminal = {
-		enabled = true,
-		win = {
-			style = "float",
-			border = "rounded",
-			width = 0.8,
-			height = 0.8,
-		},
-	},
-	input = {
-		enabled = true,
-	},
-})
 
 -- ===============================
 -- Core Config Options
@@ -105,7 +80,7 @@ opt.foldenable = true
 opt.foldcolumn = "1"
 
 -- Clipboard
-opt.clipboard = "unnamedplus" -- use system clipboard
+opt.clipboard:append("unnamedplus") -- use system clipboard
 
 -- Misc / Performance
 opt.undodir = vim.fn.stdpath("state") .. "/undo"
@@ -113,32 +88,18 @@ opt.updatetime = 200 -- faster CursorHold and completion
 opt.swapfile = false -- no swapfiles
 
 -- Diagnostic
-vim.diagnostic.config({ virtual_text = false }) -- inline diagnostics
-
----Create a keymap with sane defaults
----@param mode string|string[]
----@param lhs string
----@param rhs string|function
----@param opts? snacks.keymap.set.Opts
-Map = function(mode, lhs, rhs, opts)
-	local defaults = {
-		silent = true,
-		noremap = true,
-	}
-	opts = vim.tbl_extend("force", defaults, opts or {})
-	require("snacks.keymap").set(mode, lhs, rhs, opts)
-end
+vim.diagnostic.config({ virtual_text = false }) -- disabling inline diagnostics
 
 -- Keymaping
-Map("n", "<leader>w", "<cmd>silent write<cr>", { desc = "Easier Write" })
-Map("n", "<leader>q", "<cmd> confirm quit<cr>", { desc = "Better quit" })
-Map(
+vim.keymap.set("n", "<leader>w", "<cmd>silent write<cr>", { desc = "Easier Write" })
+vim.keymap.set("n", "<leader>q", "<cmd> confirm quit<cr>", { desc = "Better quit" })
+vim.keymap.set(
 	{ "n", "i", "v", "t", "c" },
 	"<C-z>",
 	"<Nop>",
 	{ desc = "disable annoying option that sends neovim to background process" }
 )
-Map("n", "<esc>", "<cmd>noh<cr>", { desc = "Clear highlights" })
+vim.keymap.set("n", "<esc>", "<cmd>noh<cr>", { desc = "Clear highlights" })
 
 -- ===============================
 -- Load Colorscheme Separately

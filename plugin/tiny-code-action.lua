@@ -7,7 +7,7 @@ require("lze").load({
 		require("tiny-code-action").setup({
 			picker = "snacks",
 		})
-		Map({ "n", "x" }, "<leader>ca", function()
+		vim.keymap.set({ "n", "x" }, "<leader>ca", function()
 			require("tiny-code-action").code_action({})
 		end, {
         desc = "Show Code Actions"

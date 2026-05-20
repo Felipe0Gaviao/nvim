@@ -11,7 +11,7 @@ require("lze").load({
 		ft = vim.tbl_keys(runners),
 		after = function()
 			require("code_runner").setup({ filetype = runners })
-			Map("n", "<leader>rr", "<cmd>RunCode<cr>", { desc = "Run current file" })
+			vim.keymap.set("n", "<leader>rr", "<cmd>RunCode<cr>", { desc = "Run current file" })
 		end,
 	},
 })
