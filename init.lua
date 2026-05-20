@@ -54,7 +54,6 @@ require("mini.basics").setup({
 	silent = true,
 })
 
-
 -- ===============================
 -- Core Config Options
 -- ===============================
@@ -90,16 +89,36 @@ opt.swapfile = false -- no swapfiles
 -- Diagnostic
 vim.diagnostic.config({ virtual_text = false }) -- disabling inline diagnostics
 
--- Keymaping
-vim.keymap.set("n", "<leader>w", "<cmd>silent write<cr>", { desc = "Easier Write" })
-vim.keymap.set("n", "<leader>q", "<cmd> confirm quit<cr>", { desc = "Better quit" })
+-- ===============================
+-- Keymapping
+-- ===============================
+
 vim.keymap.set(
 	{ "n", "i", "v", "t", "c" },
 	"<C-z>",
 	"<Nop>",
 	{ desc = "disable annoying option that sends neovim to background process" }
 )
+
+-- Basic Keymaps
+vim.keymap.set("n", "<leader>w", "<cmd>silent write<cr>", { desc = "Easier Write" })
+vim.keymap.set("n", "<leader>q", "<cmd> confirm quit<cr>", { desc = "Better quit" })
+vim.keymap.set("x", "p", [["_dP]], { desc = "Paste over selection without losing yanked text" })
 vim.keymap.set("n", "<esc>", "<cmd>noh<cr>", { desc = "Clear highlights" })
+
+vim.keymap.set("n", "J", "mzJ`z", { desc = "Join lines without moving cursor" })
+
+-- Better buffer move and next/previous search result
+vim.keymap.set("n", "<C-d>", "<C-d>zz", { desc = "move down in buffer with cursor centered" })
+vim.keymap.set("n", "<C-u>", "<C-u>zz", { desc = "move up in buffer with cursor centered" })
+
+vim.keymap.set("n", "n", "nzzzv", { desc = "Next search result cursor centered" })
+vim.keymap.set("n", "N", "Nzzzv", { desc = "Previous search result cursor centered" })
+
+-- LSP related re/keymapps
+vim.keymap.set("n", "gi", vim.lsp.buf.implementation, { desc = "Goto Implementation" })
+vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, { desc = "LSP Rename" })
+vim.keymap.set("n", "gt", vim.lsp.buf.type_definition, { desc = "Goto Type Definition" })
 
 -- ===============================
 -- Load Colorscheme Separately

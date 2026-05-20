@@ -47,16 +47,16 @@ MiniClue.setup({
 
 local MiniFiles = require("mini.files")
 MiniFiles.setup({
-    windows = {
-        preview = true,
-        width_focus = 40,
-        width_nofocus = 15,
-        width_preview = 35,
-    },
+	windows = {
+		preview = true,
+		width_focus = 40,
+		width_nofocus = 15,
+		width_preview = 35,
+	},
 })
 
-vim.keymap.set('n', '-', function ()
-    MiniFiles.open(vim.api.nvim_buf_get_name(0))
+vim.keymap.set("n", "-", function()
+	MiniFiles.open(vim.api.nvim_buf_get_name(0))
 end)
 
 require("mini.icons").setup()
