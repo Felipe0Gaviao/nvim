@@ -5,7 +5,7 @@ local fn = vim.fn
 api.nvim_create_autocmd("BufWritePost", {
 	group = api.nvim_create_augroup("LuaConfigRestartHint", { clear = true }),
 	pattern = "*.lua",
-    ---@param args vim.api.keyset.create_autocmd.callback_args
+	---@param args vim.api.keyset.create_autocmd.callback_args
 	callback = function(args)
 		local file = fn.fnamemodify(args.file, ":p")
 		local config_dir = fn.stdpath("config")
@@ -23,7 +23,7 @@ api.nvim_create_autocmd("BufWritePost", {
 
 -- Automate nvim-pack-lock.json chore commit
 vim.api.nvim_create_autocmd("PackChanged", {
-    ---@param ev {data: vim.event.packchanged.data}
+	---@param ev {data: vim.event.packchanged.data}
 	callback = function(ev)
 		local name = ev.data.spec.name
 		local kind = ev.data.kind
@@ -51,3 +51,24 @@ vim.api.nvim_create_autocmd("PackChanged", {
 		end, 500)
 	end,
 })
+
+vim.api.nvim_create_user_command("PackUpdate", function()
+	vim.pack.update()
+end, { desc = "Update all plugins" })
+
+vim.api.nvim_create_user_command("PackClean", function()
+	local orphans = {}
+	for _, plugin in ipairs(vim.pack.get()) do
+		if not plugin.active then
+			table.insert(orphans, plugin.spec.name)
+		end
+	end
+
+	if #orphans == 0 then
+		vim.notify("No orphaned plugins found.", vim.log.levels.INFO)
+		return
+	end
+
+	vim.pack.del(orphans)
+	vim.notify("Deleted: " .. table.concat(orphans, ", "), vim.log.levels.WARN)
+end, { desc = "Remove plugins installed but not declared in config" })
