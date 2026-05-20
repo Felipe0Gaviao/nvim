@@ -1,4 +1,8 @@
-Pack({ "https://github.com/saghen/blink.lib", "https://github.com/saghen/blink.cmp" })
+Pack({
+	"https://github.com/rafamadriz/friendly-snippets",
+	"https://github.com/saghen/blink.lib",
+	"https://github.com/saghen/blink.cmp",
+})
 
 require("lze").load({
 	{
