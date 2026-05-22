@@ -45,6 +45,8 @@ MiniClue.setup({
 	},
 })
 
+require("mini.extra").setup()
+
 local MiniFiles = require("mini.files")
 MiniFiles.setup({
 	windows = {
@@ -73,12 +75,47 @@ require("mini.notify").setup({
 }) -- adds better notifications
 require("mini.operators").setup() -- not sure if i'm going to use this enough to be worth it, remember keymap "g="
 require("mini.pairs").setup() -- auto pairs
-require("mini.sessions").setup({ autoread = true })
-require("mini.snippets").setup({
-	snippets = {
-		require("mini.snippets").gen_loader.from_lang(),
+
+local MiniPick = require("mini.pick")
+MiniPick.setup({
+	options = {
+		use_cache = true,
+	},
+	mappings = {
+		scroll_left = "",
+		scroll_right = "",
+	},
+	window = {
+		config = function()
+			local height = math.floor(0.618 * vim.o.lines)
+			local width = math.floor(0.618 * vim.o.columns)
+			return {
+				anchor = "NW",
+				height = height,
+				width = width,
+				row = math.floor(0.5 * (vim.o.lines - height)),
+				col = math.floor(0.5 * (vim.o.columns - width)),
+			}
+		end,
 	},
 })
-require("mini.snippets").start_lsp_server()
+
+vim.keymap.set("n", "<leader>ff", MiniPick.builtin.files)
+vim.keymap.set("n", "<leader>fg", MiniPick.builtin.grep_live)
+vim.keymap.set("n", "<leader>fb", MiniPick.builtin.buffers)
+vim.keymap.set("n", "<leader>fh", MiniPick.builtin.help)
+
+require("mini.extra").setup()
+
+require("mini.sessions").setup({ autoread = true })
+
+local MiniSnippets = require("mini.snippets")
+MiniSnippets().setup({
+	snippets = {
+		MiniSnippets.gen_loader.from_lang(),
+	},
+})
+MiniSnippets.start_lsp_server()
+
 require("mini.statusline").setup() -- changes the statusline at the bottom of the window
 require("mini.surround").setup() -- surround text by selecting in visual mode and pressing "sa"
