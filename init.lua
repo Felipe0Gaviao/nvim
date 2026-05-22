@@ -103,9 +103,14 @@ vim.keymap.set(
 -- Basic Keymaps
 vim.keymap.set("n", "<leader>w", "<cmd>silent write<cr>", { desc = "Easier Write" })
 vim.keymap.set("n", "<leader>q", "<cmd> confirm quit<cr>", { desc = "Better quit" })
+vim.keymap.set(
+	"n",
+	"<leader>s",
+	[[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],
+	{ desc = "Replace word cursor is on globally" }
+)
 vim.keymap.set("x", "p", [["_dP]], { desc = "Paste over selection without losing yanked text" })
 vim.keymap.set("n", "<esc>", "<cmd>noh<cr>", { desc = "Clear highlights" })
-
 vim.keymap.set("n", "J", "mzJ`z", { desc = "Join lines without moving cursor" })
 
 -- Better buffer move and next/previous search result
