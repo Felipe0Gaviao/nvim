@@ -23,8 +23,8 @@ require("conform").setup({
 		rust = { "rustfmt" },
 	},
 	format_on_save = {
-		lsp_format = "fallback",
-	},
+        timeout_ms = 1000
+    }
 })
 
 vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"
