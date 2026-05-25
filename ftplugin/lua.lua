@@ -25,13 +25,12 @@ api.nvim_create_autocmd("BufWritePost", {
 local timer = vim.uv.new_timer()
 vim.api.nvim_create_autocmd("PackChanged", {
 	callback = function()
-		timer = timer or vim.uv.new_timer()
 		timer:stop()
 		timer:start(
 			10000,
 			0,
 			vim.schedule_wrap(function()
-				local config = vim.fn.stdpath("config")
+				local config = fn.stdpath("config")
 				local result = vim.system({
 					"git",
 					"-C",
@@ -64,20 +63,3 @@ vim.api.nvim_create_autocmd("PackChanged", {
 		)
 	end,
 })
-
-vim.api.nvim_create_user_command("PackClean", function()
-	local orphans = {}
-	for _, plugin in ipairs(vim.pack.get()) do
-		if not plugin.active then
-			table.insert(orphans, plugin.spec.name)
-		end
-	end
-
-	if #orphans == 0 then
-		vim.notify("No orphaned plugins found.", vim.log.levels.INFO)
-		return
-	end
-
-	vim.pack.del(orphans)
-	vim.notify("Deleted: " .. table.concat(orphans, ", "), vim.log.levels.WARN)
-end, { desc = "Remove plugins installed but not declared in config" })
