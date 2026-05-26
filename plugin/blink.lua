@@ -10,7 +10,7 @@ require("lze").load({
 		event = { "InsertEnter", "CmdlineEnter" },
 		after = function()
 			local blink = require("blink.cmp")
-			blink.build()
+			blink.build():wait(60000)
 			blink.setup({
 				sources = {
 					default = { "lazydev", "lsp", "path", "buffer" },
