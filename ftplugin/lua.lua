@@ -1,6 +1,8 @@
 local api = vim.api
 local fn = vim.fn
 
+vim.keymap.set("n", "<leader>rr", "<cmd>source<cr>", { desc = "sources the currently open lua file" })
+
 -- Auto restart neovim config while preserving session
 api.nvim_create_autocmd("BufWritePost", {
 	group = api.nvim_create_augroup("LuaConfigRestartHint", { clear = true }),
