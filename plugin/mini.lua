@@ -55,6 +55,10 @@ MiniFiles.setup({
 		width_nofocus = 15,
 		width_preview = 35,
 	},
+	mappings = {
+		go_in = "",
+		go_in_plus = "l",
+	},
 })
 
 vim.keymap.set("n", "-", function()
@@ -84,6 +88,8 @@ MiniPick.setup({
 	mappings = {
 		scroll_left = "",
 		scroll_right = "",
+		move_down = "<C-j>",
+		move_up = "<C-k>",
 	},
 	window = {
 		config = function()
