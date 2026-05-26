@@ -21,10 +21,11 @@ require("conform").setup({
 		yaml = { "prettier" },
 		markdown = { "prettier" },
 		rust = { "rustfmt" },
+		nim = { "nimpretty" },
 	},
 	format_on_save = {
-        timeout_ms = 1000
-    }
+		timeout_ms = 1000,
+	},
 })
 
 vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"

@@ -12,6 +12,7 @@ local lsps = {
 	"vtsls",
 	"markdown-oxide",
 	"rust-analyzer",
+	"nimlsp",
 }
 
 local formatters = {
