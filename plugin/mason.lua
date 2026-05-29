@@ -27,6 +27,10 @@ vim.lsp.config("taplo", {
 	root_dir = vim.fn.expand("~"),
 })
 
+vim.lsp.config("nimls", {
+	cmd = { "nimlsp", vim.fn.expand("~/.choosenim/toolchains/nim-2.2.10") },
+})
+
 require("lze").load({
 	{
 		"mason.nvim",
