@@ -3,7 +3,7 @@ Pack({ "https://github.com/CRAG666/code_runner.nvim" })
 local runners = {
 	python = "uv run $file",
 	rust = "cargo run",
-	nim = "nim c -r",
+	nim = "nim r",
 }
 
 require("lze").load({
