@@ -12,9 +12,6 @@ require("lze").load({
 			local blink = require("blink.cmp")
 			blink.build():wait(60000)
 			blink.setup({
-				snippets = {
-					preset = "mini_snippets",
-				},
 				sources = {
 					default = { "lazydev", "lsp", "path", "snippets", "buffer" },
 					providers = {
