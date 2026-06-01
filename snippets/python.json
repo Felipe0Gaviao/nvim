@@ -1,0 +1,14 @@
+{
+  "Descriptor __get__": {
+    "prefix": "dget",
+    "body": "def __get__(self, instance: object | None, owner: type) -> ${1:object}:\n\t$0"
+  },
+  "Descriptor __set__": {
+    "prefix": "dset",
+    "body": "def __set__(self, instance: object, value: ${1:Any}) -> None:\n\t$0"
+  },
+  "Descriptor __delete__": {
+    "prefix": "ddelete",
+    "body": "def __delete__(self, instance: object) -> None:\n\t$0"
+  }
+}
