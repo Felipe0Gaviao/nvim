@@ -36,6 +36,8 @@ require("tiny-cmdline").setup({
 	on_reposition = require("tiny-cmdline").adapters.blink,
 })
 
+require("mini.extra").setup()
+
 require("mini.basics").setup({
 	options = {
 		basic = true,
@@ -53,6 +55,15 @@ require("mini.basics").setup({
 	},
 	silent = true,
 })
+
+local MiniSnippets = require("mini.snippets")
+MiniSnippets.setup({
+	snippets = {
+		MiniSnippets.gen_loader.from_lang(),
+	},
+})
+
+MiniSnippets.start_lsp_server()
 
 -- ===============================
 -- Core Config Options

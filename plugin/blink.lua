@@ -12,8 +12,11 @@ require("lze").load({
 			local blink = require("blink.cmp")
 			blink.build():wait(60000)
 			blink.setup({
+				snippets = {
+					preset = "mini_snippets",
+				},
 				sources = {
-					default = { "lazydev", "lsp", "snippets", "path", "buffer" },
+					default = { "lazydev", "lsp", "path", "snippets", "buffer" },
 					providers = {
 						lazydev = {
 							name = "LazyDev",
@@ -29,7 +32,7 @@ require("lze").load({
 					preset = "default",
 					["<C-j>"] = { "select_next", "fallback" },
 					["<C-k>"] = { "select_prev", "fallback" },
-					["<Enter>"] = { "accept" }, -- Tab accepts or falls through
+					["<Tab>"] = { "accept", "fallback" }, -- Tab accepts or falls through
 				},
 				completion = {
 					list = {

@@ -45,7 +45,6 @@ MiniClue.setup({
 	},
 })
 
-require("mini.extra").setup()
 
 local MiniFiles = require("mini.files")
 MiniFiles.setup({
@@ -115,13 +114,6 @@ require("mini.extra").setup()
 
 require("mini.sessions").setup({ autoread = true })
 
-local MiniSnippets = require("mini.snippets")
-MiniSnippets().setup({
-	snippets = {
-		MiniSnippets.gen_loader.from_lang(),
-	},
-})
-MiniSnippets.start_lsp_server()
 
 require("mini.statusline").setup() -- changes the statusline at the bottom of the window
 require("mini.surround").setup() -- surround text by selecting in visual mode and pressing "sa"
