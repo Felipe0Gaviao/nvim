@@ -140,3 +140,46 @@ vim.keymap.set("n", "gt", vim.lsp.buf.type_definition, { desc = "Goto Type Defin
 -- Load Colorscheme Separately
 -- ===============================
 vim.cmd.colorscheme("miniwinter")
+
+-- Automate nvim-pack-lock.json chore commit
+local timer = vim.uv.new_timer()
+vim.api.nvim_create_autocmd("PackChanged", {
+	callback = function()
+		timer:stop()
+		timer:start(
+			10000,
+			0,
+			vim.schedule_wrap(function()
+				local config = fn.stdpath("config")
+				local result = vim.system({
+					"git",
+					"-C",
+					config,
+					"add",
+					"nvim-pack-lock.json",
+				}, { text = true }):wait()
+
+				if result.code ~= 0 then
+					vim.notify("lockfile stage failed:\n" .. result.stderr, vim.log.levels.ERROR)
+					return
+				end
+
+				result = vim.system({
+					"git",
+					"-C",
+					config,
+					"commit",
+					"-m",
+					"chore(plugins): update lockfile",
+				}, { text = true }):wait()
+
+				if result.code ~= 0 then
+					local output = (result.stdout or "") .. (result.stderr or "")
+					if not output:find("nothing to commit") then
+						vim.notify("lockfile commit failed:\n" .. result.stderr, vim.log.levels.ERROR)
+					end
+				end
+			end)
+		)
+	end,
+})
