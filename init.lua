@@ -150,7 +150,7 @@ vim.api.nvim_create_autocmd("PackChanged", {
 			10000,
 			0,
 			vim.schedule_wrap(function()
-				local config = fn.stdpath("config")
+				local config = vim.fn.stdpath("config")
 				local result = vim.system({
 					"git",
 					"-C",
