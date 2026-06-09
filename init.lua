@@ -143,6 +143,7 @@ vim.cmd.colorscheme("miniwinter")
 
 -- Automate nvim-pack-lock.json chore commit
 local timer = vim.uv.new_timer()
+assert(timer, "failed to create timer")
 vim.api.nvim_create_autocmd("PackChanged", {
 	callback = function()
 		timer:stop()
