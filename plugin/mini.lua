@@ -45,9 +45,7 @@ MiniClue.setup({
 	},
 })
 
-
-local MiniFiles = require("mini.files")
-MiniFiles.setup({
+require("mini.files").setup({
 	windows = {
 		preview = true,
 		width_focus = 40,
@@ -79,8 +77,7 @@ require("mini.notify").setup({
 require("mini.operators").setup() -- not sure if i'm going to use this enough to be worth it, remember keymap "g="
 require("mini.pairs").setup() -- auto pairs
 
-local MiniPick = require("mini.pick")
-MiniPick.setup({
+require("mini.pick").setup({
 	options = {
 		use_cache = true,
 	},
@@ -105,15 +102,14 @@ MiniPick.setup({
 	},
 })
 
-vim.keymap.set("n", "<leader>ff", MiniPick.builtin.files)
-vim.keymap.set("n", "<leader>fg", MiniPick.builtin.grep_live)
-vim.keymap.set("n", "<leader>fb", MiniPick.builtin.buffers)
-vim.keymap.set("n", "<leader>fh", MiniPick.builtin.help)
+vim.keymap.set("n", "<leader>ff", MiniPick.builtin.files, { desc = "fuzzy find Files" })
+vim.keymap.set("n", "<leader>fg", MiniPick.builtin.grep_live, { desc = "fuzzy find text" })
+vim.keymap.set("n", "<leader>fb", MiniPick.builtin.buffers, { desc = "fuzzy find on currently open buffers" })
+vim.keymap.set("n", "<leader>fh", MiniPick.builtin.help, { desc = "fuzzy find help" })
 
 require("mini.extra").setup()
 
 require("mini.sessions").setup({ autoread = true })
-
 
 require("mini.statusline").setup() -- changes the statusline at the bottom of the window
 require("mini.surround").setup() -- surround text by selecting in visual mode and pressing "sa"
