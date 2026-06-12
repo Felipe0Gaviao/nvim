@@ -6,11 +6,15 @@ require("lze").load({
 		event = "LspAttach",
 		after = function()
 			require("tiny-inline-diagnostic").setup({
-				preset = "minimal",
+				preset = "modern",
 				options = {
 					show_source = {
 						enabled = true,
 						if_many = true,
+					},
+					multilines = {
+						enabled = true,
+						always_show = true,
 					},
 				},
 			})

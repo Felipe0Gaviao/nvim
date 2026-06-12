@@ -97,9 +97,6 @@ opt.undodir = vim.fn.stdpath("state") .. "/undo"
 opt.updatetime = 200 -- faster CursorHold and completion
 opt.swapfile = false -- no swapfiles
 
--- Diagnostic
-vim.diagnostic.config({ virtual_text = false }) -- disabling inline diagnostics
-
 -- ===============================
 -- Keymapping
 -- ===============================
