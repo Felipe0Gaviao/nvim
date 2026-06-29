@@ -10,7 +10,7 @@ require("lze").load({
 		event = { "InsertEnter", "CmdlineEnter" },
 		after = function()
 			local blink = require("blink.cmp")
-			blink.build():wait(60000)
+			blink.build():pwait(60000)
 			blink.setup({
 				sources = {
 					default = { "lazydev", "lsp", "path", "snippets", "buffer" },
@@ -29,16 +29,16 @@ require("lze").load({
 					preset = "default",
 					["<C-j>"] = { "select_next", "fallback" },
 					["<C-k>"] = { "select_prev", "fallback" },
-					["<Tab>"] = { "accept", "fallback" }, -- Tab accepts or falls through
+					["<Tab>"] = { "accept", "fallback" },
 				},
 				completion = {
 					list = {
 						selection = {
-							preselect = true, -- automatically select first item
+							preselect = true,
 						},
 					},
 					trigger = {
-						show_on_insert = true, -- show automatically when entering insert mode
+						show_on_insert = true,
 					},
 					accept = {
 						auto_brackets = {
@@ -73,7 +73,6 @@ require("lze").load({
 								return vim.fn.getcmdtype() == ":"
 							end,
 						},
-						ghost_text = { enabled = true },
 					},
 				},
 			})
