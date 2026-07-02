@@ -1,6 +1,5 @@
 Pack({
 	"https://github.com/nvim-treesitter/nvim-treesitter",
-	"https://github.com/nvim-treesitter/nvim-treesitter-context",
 })
 
 local ensure_installed = {
@@ -77,13 +76,6 @@ require("lze").load({
 		event = "DeferredUIEnter",
 		after = function()
 			treesitter.install(ensure_installed)
-		end,
-	},
-	{
-		"nvim-treesitter-context",
-		on_plugin = { "nvim-treesitter" },
-		after = function()
-			require("treesitter-context").setup({ mode = "topline" })
 		end,
 	},
 })
