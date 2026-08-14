@@ -109,7 +109,5 @@ vim.keymap.set("n", "<leader>fh", MiniPick.builtin.help, { desc = "fuzzy find he
 
 require("mini.extra").setup()
 
-require("mini.sessions").setup({ autoread = true })
-
 require("mini.statusline").setup() -- changes the statusline at the bottom of the window
 require("mini.surround").setup() -- surround text by selecting in visual mode and pressing "sa"

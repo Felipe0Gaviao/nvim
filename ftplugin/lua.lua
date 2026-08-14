@@ -15,11 +15,9 @@ api.nvim_create_autocmd("BufWritePost", {
 		if not vim.startswith(file, config_dir) then
 			return
 		end
-		-- Save all buffers silently
-		vim.cmd("silent! wall")
 
-		-- Restart and restore session
-		require("mini.sessions").restart()
+		-- Save all buffers silently before restart snapshots the session
+		vim.cmd("silent! wall")
+		vim.cmd("restart")
 	end,
 })
-
