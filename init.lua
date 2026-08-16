@@ -138,7 +138,7 @@ vim.keymap.set("n", "gt", vim.lsp.buf.type_definition, { desc = "Goto Type Defin
 -- ===============================
 vim.cmd.colorscheme("miniwinter")
 
--- Automate nvim-pack-lock.json chore commit
+-- Automate pack lockfile chore commit
 local timer = vim.uv.new_timer()
 assert(timer, "failed to create timer")
 vim.api.nvim_create_autocmd("PackChanged", {
@@ -149,12 +149,14 @@ vim.api.nvim_create_autocmd("PackChanged", {
 			0,
 			vim.schedule_wrap(function()
 				local config = vim.fn.stdpath("config")
+				local lockfile = vim.o.packlockfile
+
 				local result = vim.system({
 					"git",
 					"-C",
 					config,
 					"add",
-					"nvim-pack-lock.json",
+					lockfile,
 				}, { text = true }):wait()
 
 				if result.code ~= 0 then
