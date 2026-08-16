@@ -38,7 +38,7 @@ vim.api.nvim_create_autocmd("FileType", {
 			if pcall(vim.treesitter.language.add, l) then
 				vim.treesitter.start(buf)
 				vim.wo[0][0].foldmethod = "expr"
-				vim.wo[0][0].foldexpr = "v:lua.vim.treesitter.foldexpr()"
+				vim.wo[0][0].foldexpr = vim.treesitter.foldexpr
 			end
 		end
 
@@ -55,7 +55,7 @@ vim.api.nvim_create_autocmd("FileType", {
 vim.api.nvim_create_autocmd("FileType", {
 	pattern = { "javascript", "typescript" },
 	callback = function()
-		vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+		vim.bo.indentexpr = require("nvim-treesitter").indentexpr
 	end,
 })
 
